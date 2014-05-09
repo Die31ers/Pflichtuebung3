@@ -1,14 +1,20 @@
 package hsma.uib.ss14.tpe08.p3;
 
-import java.util.LinkedList; // Aufwand sparen
 /**
- * Implementierung der spezialisierten Version des Interface NodeList.
+ * Verwaltung von Listen
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
  *
  */
-public class NodeListImpl {
+public class NodeListImpl<T> extends ListImpl<Node<T>> implements NodeList<T>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	
 }
