@@ -1,4 +1,6 @@
-package hsma.uib.ss14.tpe08.p3;
+package Node;
+
+import hsma.uib.ss14.tpe08.p3.List;
 
 import java.util.Iterator;
 

@@ -1,4 +1,9 @@
-package hsma.uib.ss14.tpe08.p3;
+package Node;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import hsma.uib.ss14.tpe08.p3.*;
+import SearchStrategy.*;
 
 /**
  * Die Klasse Node soll eine generische Klasse sein. In dieser Klasse wird das
@@ -10,7 +15,7 @@ package hsma.uib.ss14.tpe08.p3;
  * 
  */
 
-public class Node<E extends Comparable<E>>  {
+public class Node<E extends Comparable<E>>{
 
 	E elem;
 	Node<E> next, previous;
@@ -19,11 +24,12 @@ public class Node<E extends Comparable<E>>  {
 	private String name;
 	private String attributes;
 	String value;
-
+	public ArrayList<E> tree = new ArrayList<E>();
 	
 	public void addChild(Node<E> elem) {
-	
-		
+		int pos = 0 ; 
+		tree.add((E) elem);
+		pos++;
 	}
 
 	public void getChildren() {
@@ -45,4 +51,5 @@ public class Node<E extends Comparable<E>>  {
 	public String getValue() {
 		return value;
 	}
+
 }

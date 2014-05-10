@@ -1,5 +1,7 @@
 package hsma.uib.ss14.tpe08.p3;
 
+import SearchStrategy.SearchStrategy;
+
 /**
  * Klasse Graph
  * 

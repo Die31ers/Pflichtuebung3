@@ -1,4 +1,4 @@
-package hsma.uib.ss14.tpe08.p3;
+package SearchStrategy;
 
 /**
  * Die Interface für die Such-Strategien.

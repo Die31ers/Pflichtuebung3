@@ -1,4 +1,4 @@
-package hsma.uib.ss14.tpe08.p3;
+package JUnitTestklasse;
 
 import static org.junit.Assert.*;
 
