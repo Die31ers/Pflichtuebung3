@@ -1,5 +1,6 @@
 package hsma.uib.ss14.tpe08.p3;
 import java.util.Iterator;
+
 import java.util.LinkedList; // Aufwand sparen
 
 /**
