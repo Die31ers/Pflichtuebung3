@@ -25,7 +25,7 @@ public class Node<T> {
 	 * 
 	 * @param A
 	 */
-	public void addChild(List<T> A) {
+	public <T> void addChild(List<T>A) {
 		A.add(e);
 	}
 
