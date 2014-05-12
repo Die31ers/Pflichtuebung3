@@ -1,9 +1,9 @@
 package Node;
-import java.util.ArrayList;
+
 import java.util.Iterator;
 
-import hsma.uib.ss14.tpe08.p3.*;
 import SearchStrategy.*;
+import hsma.uib.ss14.tpe08.p3.*;
 
 /**
  * Die Klasse Node soll eine generische Klasse sein. In dieser Klasse wird das
@@ -15,29 +15,26 @@ import SearchStrategy.*;
  * 
  */
 
-public class Node<E extends Comparable<E>>{
-
-	E elem;
-	Node<E> next, previous;
-
-	private Node parent;
+public class Node<T> {
 	private String name;
 	private String attributes;
 	String value;
-	public ArrayList<E> tree = new ArrayList<E>();
-	
-	public void addChild(Node<E> elem) {
-		int pos = 0 ; 
-		tree.add((E) elem);
-		pos++;
+
+	/**
+	 * Das Hinzufuegen eines Kindknotens.
+	 * 
+	 * @param A
+	 */
+	public void addChild(List<T> A) {
+		A.add(e);
 	}
 
 	public void getChildren() {
-		
 	}
 
 	/**
 	 * Diese Methode gibt den Namen zurueck.
+	 * 
 	 * @return
 	 */
 	public String getName() {
@@ -46,6 +43,7 @@ public class Node<E extends Comparable<E>>{
 
 	/**
 	 * Diese Methode gibt den Wert zurueck.
+	 * 
 	 * @return
 	 */
 	public String getValue() {

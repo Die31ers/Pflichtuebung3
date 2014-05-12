@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * Verwaltung von Listen
+ * Verwaltung von Listen.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
