@@ -1,8 +1,8 @@
 package Node;
 
-import hsma.uib.ss14.tpe08.p3.List;
-
 import java.util.Iterator;
+
+import Graph_List_ListImpl.List;
 
 /**
  * Implementierung der spezialisierten Version des Interface NodeList, die nur
@@ -14,6 +14,7 @@ import java.util.Iterator;
  * 
  */
 public interface NodeList<T> extends List<T> {
+	
 	
 	@Override
 	public Iterator iterator();

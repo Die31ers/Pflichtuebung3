@@ -1,8 +1,7 @@
-package hsma.uib.ss14.tpe08.p3;
+package Graph_List_ListImpl;
 
-import java.util.ArrayList;
-import java.util.Set;
-
+import java.util.*;
+import SearchStrategy.SearchStrategy;
 import SearchStrategy.Searchs;
 
 /**
@@ -14,7 +13,7 @@ import SearchStrategy.Searchs;
  * @param <T>
  * 
  */
-public class Graph implements Searchs {
+public class Graph implements Searchs{
 
 	/**
 	 * Kopieren aller Knoten in eine übergebene Liste
@@ -40,7 +39,6 @@ public class Graph implements Searchs {
 		 *  füge wi in q ein; markiere wi
 		 * als besucht
 		 */
-		
 		
 	}
 

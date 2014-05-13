@@ -2,8 +2,8 @@ package Node;
 
 import java.util.Iterator;
 
+import Graph_List_ListImpl.*;
 import SearchStrategy.*;
-import hsma.uib.ss14.tpe08.p3.*;
 
 /**
  * Die Klasse Node soll eine generische Klasse sein. In dieser Klasse wird das
@@ -15,25 +15,26 @@ import hsma.uib.ss14.tpe08.p3.*;
  * 
  */
 
-public class Node<T> {
+public class Node<T> implements NodeList {
 
-    T elem;
-    Node<T> next, previous;
+	T elem, e;
+	Node<T> next, previous;
 
-    private Node parent;
-    private String name;
-    private String attributes;
-    String value;
+	private Node parent;
+	private String name;
+	private String attributes;
+	String value;
+
 	/**
-	 * Das Hinzufuegen eines Kindknotens.
 	 * 
-	 * @param A
+	 * @param a
 	 */
-	public <T> void addChild(List<T>A) {
-		//A.add();
+	public void addChild(List<T> a) {
+		a.add(e);
 	}
 
-	public void getChildren() {
+	public String getChildren() {
+		return attributes;
 	}
 
 	/**
@@ -52,6 +53,54 @@ public class Node<T> {
 	 */
 	public String getValue() {
 		return value;
+	}
+
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean contains(Object e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean add(Object e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void addFirst(Object e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Object peekFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Object pollFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

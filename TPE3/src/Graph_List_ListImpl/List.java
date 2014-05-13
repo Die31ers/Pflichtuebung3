@@ -1,4 +1,4 @@
-package hsma.uib.ss14.tpe08.p3;
+package Graph_List_ListImpl;
 
 import java.util.LinkedList; // Aufwand sparen
 
