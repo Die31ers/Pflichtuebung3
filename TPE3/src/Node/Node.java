@@ -16,17 +16,21 @@ import hsma.uib.ss14.tpe08.p3.*;
  */
 
 public class Node<T> {
-	private String name;
-	private String attributes;
-	String value;
 
+    T elem;
+    Node<T> next, previous;
+
+    private Node parent;
+    private String name;
+    private String attributes;
+    String value;
 	/**
 	 * Das Hinzufuegen eines Kindknotens.
 	 * 
 	 * @param A
 	 */
 	public <T> void addChild(List<T>A) {
-		A.add(e);
+		//A.add();
 	}
 
 	public void getChildren() {

@@ -11,6 +11,7 @@ import SearchStrategy.Searchs;
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
+ * @param <T>
  * 
  */
 public class Graph implements Searchs {
@@ -21,7 +22,7 @@ public class Graph implements Searchs {
 	 * @param Liste
 	 * @param A
 	 */
-	public <T> void copyInto(ArrayList Liste, List<T> A) {
+	public void copyInto() {
 
 	}
 
@@ -42,7 +43,6 @@ public class Graph implements Searchs {
 		
 		
 	}
-	Set<E> s = new hashCode();
 
 	@Override
 	public void tiefenSuche() {
@@ -55,9 +55,7 @@ public class Graph implements Searchs {
 		 * depthFirst (vi)
 		 * }....
 		 */
-		if(s.contains(e)){
-			return;
-		}
+	
 		
 	}
 
