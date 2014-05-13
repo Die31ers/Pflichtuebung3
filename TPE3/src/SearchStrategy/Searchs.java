@@ -11,7 +11,7 @@ package SearchStrategy;
  */
 public interface Searchs {
 
-	public void breitenSuche();
+	public void breadthFirst();
 
 	public void tiefenSuche();
 

@@ -25,12 +25,32 @@ public class Graph implements Searchs {
 	}
 
 	@Override
-	public void breitenSuche() {
+	public void breadthFirst() {
+		/*
+		 * proc breathFirst(v) 
+		 * Erzeuge Wareschlange q und füge v in q ein;
+		 * Markiere v als besucht; 
+		 * while (q nicht leer ist){ 
+		 * entnehme vorderstes Element aus q und weise es w zu; 
+		 * verarbeite w;
+		 *  for jeden nachfolger wi von w 
+		 *  if wi noch nicht besucht then 
+		 *  füge wi in q ein; markiere wi
+		 * als besucht
+		 */
 	}
 
 	@Override
 	public void tiefenSuche() {
-		// TODO Auto-generated method stub
+		/*
+		 * proc depthFirst(v) 
+		 * if v nch nicht besucht then
+		 * markiere v als besucht;
+		 * verarbeite Knoten v; 
+		 * for jeden nachfolger vi von v 
+		 * depthFirst (vi)
+		 * }....
+		 */
 
 	}
 
