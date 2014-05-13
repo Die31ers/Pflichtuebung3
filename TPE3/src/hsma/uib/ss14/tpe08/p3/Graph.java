@@ -1,6 +1,7 @@
 package hsma.uib.ss14.tpe08.p3;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import SearchStrategy.Searchs;
 
@@ -38,7 +39,10 @@ public class Graph implements Searchs {
 		 *  füge wi in q ein; markiere wi
 		 * als besucht
 		 */
+		
+		
 	}
+	Set<E> s = new hashCode();
 
 	@Override
 	public void tiefenSuche() {
@@ -51,7 +55,10 @@ public class Graph implements Searchs {
 		 * depthFirst (vi)
 		 * }....
 		 */
-
+		if(s.contains(e)){
+			return;
+		}
+		
 	}
 
 }
