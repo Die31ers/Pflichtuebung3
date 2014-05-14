@@ -1,14 +1,17 @@
 package hsma.uib.ss14.tpe08.p3;
 
 /**
- * Die Interface für Such Strategien.
+ * Interface f�r die Suche in Graph Diese Inteface hat zwei Methode : search und
+ * getPath
  * 
- * @author Giang Pham
- * @author Joshua Barsoum
- * @author Hunar Mawlod
- *
+ * @author Ketcha
+ * 
+ * @param <T>
  */
-public interface SearchStrategy {
-	public void search();
-	public void getPath();
+public interface SearchStrategy<T> {
+
+	public NodeListImpl<Node<T>> search(Node<T> startknoten, T value);
+
+	public NodeListImpl<Node<T>> getPath();
+
 }
