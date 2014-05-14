@@ -57,4 +57,16 @@ public class Graph implements Searchs{
 		
 	}
 
+	@Override
+	public void search() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getPath() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

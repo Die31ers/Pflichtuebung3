@@ -17,6 +17,6 @@ public class Hauptprogramm {
 		liste.add(a);
 		liste.add(b);
 		liste.add(c);
-		System.out.println(liste.get(2));
+		System.out.println(liste.get(0));
 	}
 }

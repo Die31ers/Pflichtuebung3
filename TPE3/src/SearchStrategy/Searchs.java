@@ -9,7 +9,7 @@ package SearchStrategy;
  * @author Hunar Mawlod
  * 
  */
-public interface Searchs {
+public interface Searchs extends SearchStrategy {
 
 	public void breadthFirst();
 

@@ -8,7 +8,7 @@ package SearchStrategy;
  * @author Hunar Mawlod
  *
  */
-public interface SearchStrategy extends Searchs {
+public interface SearchStrategy  {
 	public void search();
 	public void getPath();
 }
