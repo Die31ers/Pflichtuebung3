@@ -1,6 +1,9 @@
 package Graph_List_ListImpl;
 
 import java.util.*;
+
+import Gruppe07.UIB.ws2013hsma.DKK.tpeue3.Node;
+import Gruppe07.UIB.ws2013hsma.DKK.tpeue3.NodeListImpl;
 import SearchStrategy.SearchStrategy;
 import SearchStrategy.Searchs;
 
@@ -22,7 +25,7 @@ public class Graph implements Searchs{
 	 * @param A
 	 */
 	public void copyInto() {
-
+		
 	}
 
 	@Override

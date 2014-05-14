@@ -3,7 +3,7 @@ package Node;
 import java.util.Iterator;
 
 import Graph_List_ListImpl.*;
-import SearchStrategy.*;
+import SearchStrategy.SearchStrategy;
 
 /**
  * Die Klasse Node soll eine generische Klasse sein. In dieser Klasse wird das
@@ -15,26 +15,27 @@ import SearchStrategy.*;
  * 
  */
 
-public class Node<T> implements NodeList {
+public class Node<T> {
 
-	T elem, e;
-	Node<T> next, previous;
+//	T elem, e;
+//	Node<T> next, previous;
 
 	private Node parent;
 	private String name;
-	private String attributes;
-	String value;
+	// private String attributes;
+	private String value;
+	private NodeListImpl<Node<T>> kinder = new NodeListImpl<Node<T>>();
 
 	/**
 	 * 
 	 * @param a
 	 */
-	public void addChild(List<T> a) {
-		a.add(e);
+	public void addChild(Node<T> a) {
+		this.kinder.add(a);
 	}
 
-	public String getChildren() {
-		return attributes;
+	public NodeListImpl<Node<T>> getChildren() {
+		return this.kinder;
 	}
 
 	/**
@@ -55,52 +56,32 @@ public class Node<T> implements NodeList {
 		return value;
 	}
 
-	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	public int hashCode() {
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + (value != null ? value.hashCode() : 0);
+		result = 31 * result + (kinder != null ? kinder.hashCode() : 0);
+		return result;
 	}
 
-	@Override
-	public boolean contains(Object e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean add(Object e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void addFirst(Object e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Object peekFirst() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Object pollFirst() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Node other = (Node) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
+			return false;
+		return true;
 	}
 
 }
