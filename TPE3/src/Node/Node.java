@@ -17,25 +17,24 @@ import SearchStrategy.SearchStrategy;
 
 public class Node<T> {
 
-//	T elem, e;
-//	Node<T> next, previous;
+	// T elem, e;
+	// Node<T> next, previous;
 
 	private Node parent;
 	private String name;
-	// private String attributes;
 	private String value;
-	private NodeListImpl<Node<T>> kinder = new NodeListImpl<Node<T>>();
+	private NodeListImpl<Node<T>> knoten = new NodeListImpl<Node<T>>();
 
 	/**
 	 * 
 	 * @param a
 	 */
 	public void addChild(Node<T> a) {
-		this.kinder.add(a);
+		this.knoten.add(a);
 	}
 
 	public NodeListImpl<Node<T>> getChildren() {
-		return this.kinder;
+		return this.knoten;
 	}
 
 	/**
@@ -59,7 +58,7 @@ public class Node<T> {
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
 		result = 31 * result + (value != null ? value.hashCode() : 0);
-		result = 31 * result + (kinder != null ? kinder.hashCode() : 0);
+		result = 31 * result + (knoten != null ? knoten.hashCode() : 0);
 		return result;
 	}
 

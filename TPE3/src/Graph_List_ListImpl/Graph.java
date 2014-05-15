@@ -2,8 +2,8 @@ package Graph_List_ListImpl;
 
 import java.util.*;
 
-import SearchStrategy.SearchStrategy;
-import SearchStrategy.Searchs;
+import SearchStrategy.*;
+import Node.*;
 
 /**
  * Klasse Graph
@@ -14,17 +14,33 @@ import SearchStrategy.Searchs;
  * @param <T>
  * 
  */
-public class Graph implements Searchs{
+public class Graph<T> implements Searchs{
+	Node<T> parent;  //jeder Knoten muss ja seine "children / Kinder" kennen
+	NodeListImpl<Node<T>> knoten = new NodeListImpl<Node<T>>();
 
+	public Graph(Node<T> parent){
+		this.parent = parent;
+	}
+	
+	public Node<T> getParent(){
+		return this.parent;
+	}
 	/**
-	 * Kopieren aller Knoten in eine übergebene Liste
-	 * 
-	 * @param Liste
-	 * @param A
+	 * Die Methode <code>copyInto()</code> kopiert die vorhandene generische 
+	 * Liste in eine andere generische Liste.
+	 * @return
 	 */
-	public void copyInto() {
+	public NodeListImpl<?> copyInto() {
+		NodeListImpl<?>copyList = new NodeListImpl();
+		copyList.add(parent);
+		  for(Node<T>node : this.knoten){
+		  copyList.add(node);
+
+		  }
+		  return copyList;
 		
 	}
+	
 
 	@Override
 	public void breadthFirst() {
