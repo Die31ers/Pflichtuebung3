@@ -1,6 +1,6 @@
 package Graph_List_ListImpl;
 
-import java.util.LinkedList; // Aufwand sparen
+//import java.util.LinkedList; // Aufwand sparen
 
 /**
  * Einfache Datenstruktur zur Verwaltung einer Reihe von Elementen.
@@ -26,7 +26,7 @@ public interface List<T> extends Iterable<T> {
 	 *            Element, das hinzugefugt werden soll.
 	 * @return ist immer true
 	 */
-	public abstract boolean add(T e);
+	public abstract boolean add(Object e);
 
 	/**
 	 * Fugt am Anfang ein Element hinzu.

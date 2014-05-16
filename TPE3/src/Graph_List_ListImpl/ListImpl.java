@@ -14,10 +14,11 @@ import java.util.LinkedList;
  *
  */
 public class ListImpl<T> implements List<T>{
-	LinkedList list = new LinkedList();
+
+	LinkedList<T> list = new LinkedList<T>();
 
 	@Override
-	public Iterator iterator() {
+	public Iterator<T> iterator() {
 		return list.iterator();
 	}
 
@@ -26,7 +27,7 @@ public class ListImpl<T> implements List<T>{
 		return list.contains(e);
 	}
 
-	private int size() {
+	public int size() {
 		return list.size();
 	}
 
@@ -36,7 +37,7 @@ public class ListImpl<T> implements List<T>{
 	}
 
 	@Override
-	public void addFirst(Object e) {
+	public void addFirst(T e) {
 		list.addFirst(e);
 	}
 
@@ -60,5 +61,4 @@ public class ListImpl<T> implements List<T>{
 		list.clear();
 		
 	}
-	
 }

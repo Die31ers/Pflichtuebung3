@@ -15,10 +15,10 @@ import Graph_List_ListImpl.List;
  * 
  */
 public interface NodeList<T> extends List<T> {
-	
-	
+
+	/*
 	@Override
-	public Iterator iterator();
+	public Iterator<T> iterator();
 
 	@Override
 	public boolean contains(Object e);
@@ -40,5 +40,5 @@ public interface NodeList<T> extends List<T> {
 
 	@Override
 	public void clear();
-
+	*/
 }

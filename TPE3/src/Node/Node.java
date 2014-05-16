@@ -23,7 +23,7 @@ public class Node<T> {
 	private Node parent;
 	private String name;
 	private String value;
-	private NodeListImpl<Node<T>> children = new NodeListImpl<Node<T>>();
+	private NodeList<T> children = new NodeListImpl<T>();
 
 	public Node(){
 		this.name = name;
@@ -37,7 +37,7 @@ public class Node<T> {
 		this.children.add(a);
 	}
 
-	public NodeListImpl<Node<T>> getChildren() {
+	public NodeList<T> getChildren() {
 		return this.children;
 	}
 

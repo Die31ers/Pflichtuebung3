@@ -16,7 +16,7 @@ public class NodeListImpl<T> implements NodeList<T>{
 
 
 	@Override
-	public Iterator iterator() {
+	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
