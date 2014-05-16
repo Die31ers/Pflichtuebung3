@@ -14,5 +14,5 @@ public interface Searchs extends SearchStrategy {
 	public void breadthFirst();
 
 	public void tiefenSuche();
-
+	
 }

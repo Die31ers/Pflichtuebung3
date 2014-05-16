@@ -1,7 +1,8 @@
 package Node;
 import java.util.Iterator;
 
-import java.util.LinkedList; // Aufwand sparen
+
+//import java.util.LinkedList; // Aufwand sparen
 
 /**
  * Verwaltung von Listen

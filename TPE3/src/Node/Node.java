@@ -23,18 +23,22 @@ public class Node<T> {
 	private Node parent;
 	private String name;
 	private String value;
-	private NodeListImpl<Node<T>> knoten = new NodeListImpl<Node<T>>();
+	private NodeListImpl<Node<T>> children = new NodeListImpl<Node<T>>();
 
+	public Node(){
+		this.name = name;
+		this.value = value;
+	}
 	/**
 	 * 
 	 * @param a
 	 */
 	public void addChild(Node<T> a) {
-		this.knoten.add(a);
+		this.children.add(a);
 	}
 
 	public NodeListImpl<Node<T>> getChildren() {
-		return this.knoten;
+		return this.children;
 	}
 
 	/**
@@ -58,7 +62,7 @@ public class Node<T> {
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
 		result = 31 * result + (value != null ? value.hashCode() : 0);
-		result = 31 * result + (knoten != null ? knoten.hashCode() : 0);
+		result = 31 * result + (children != null ? children.hashCode() : 0);
 		return result;
 	}
 
