@@ -5,7 +5,9 @@ import java.util.LinkedList;
 /**
  * Class , die die verschiedene Methode der Interface implementiert.
  * 
- * @author Ketcha
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  * 
  * @param <T>
  */

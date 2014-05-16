@@ -3,8 +3,10 @@ package hsma.uib.ss14.tpe08.p3;
 /**
  * Methode, die das Suchen in Graph erleichtern
  * 
- * @author Ketcha
- * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *  
  * @param <T>
  */
 public abstract class SuchHelfer<T> {

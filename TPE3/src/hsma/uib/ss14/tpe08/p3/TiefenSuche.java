@@ -4,7 +4,9 @@ package hsma.uib.ss14.tpe08.p3;
  * Klasse, die die Knoten der Graph tiefen suchen sollt hier wird die PreOrder
  * benutzt
  * 
- * @author Ketcha
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  * 
  * @param <T>
  * 

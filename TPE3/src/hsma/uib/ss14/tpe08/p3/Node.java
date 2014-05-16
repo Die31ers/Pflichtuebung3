@@ -8,7 +8,9 @@ import java.util.Collections;
  * Classe, die die Knoten implementiert Eine Graph besteht aus Koten ,jeder
  * Knoten hat ein Namen und einen Wert beliebige Typen
  * 
- * @author Ketcha
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  * 
  * @param <T>
  * 

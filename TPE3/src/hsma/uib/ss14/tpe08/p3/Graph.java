@@ -4,7 +4,10 @@ package hsma.uib.ss14.tpe08.p3;
  * class  Graph
  * Der Graph besteht aus beliebiege Anzahl von Konten,wobei 
  * einer der Knoten als Anfangsknoten ausgezeignet wird 
- * @author Ketcha
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  *
  * @param <T>
  * @param search

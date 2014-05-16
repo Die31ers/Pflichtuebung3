@@ -10,7 +10,9 @@ import org.junit.Test;
  * die Konten der Graph Breiten- und Tiefensuche in der erwarteten Reihenfolge
  * besucht.
  * 
- * @author Ketcha
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  * 
  *         R�ckgabewert: Knoten in der erwartete Reihenfolge
  */

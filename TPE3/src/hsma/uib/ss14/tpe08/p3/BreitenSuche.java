@@ -4,7 +4,9 @@ package hsma.uib.ss14.tpe08.p3;
  * Methode, die die Konoten der Graph in der erwartete Reihenfolge besucht Die
  * Knoten werden breitengesuchnt :levelorder
  * 
- * @author Ketcha
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  * 
  * @param <T>
  * 

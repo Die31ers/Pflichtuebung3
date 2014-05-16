@@ -5,8 +5,10 @@ import java.util.LinkedList;
 /**
  * Klasse, die KnodeList implementiert
  * 
- * @author Ketcha
- * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *  
  * @param <Node>
  */
 public class NodeListImpl<Node> extends ListImpl<Node> implements
