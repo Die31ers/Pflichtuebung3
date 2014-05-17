@@ -1,7 +1,7 @@
 package Node;
 import java.util.Iterator;
 
-
+import Graph_List_ListImpl.*;
 //import java.util.LinkedList; // Aufwand sparen
 
 /**
@@ -14,13 +14,6 @@ import java.util.Iterator;
  */
 public class NodeListImpl<T> implements NodeList<T>{
 
-
-	@Override
-	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public boolean contains(Object e) {
 		// TODO Auto-generated method stub
@@ -28,13 +21,13 @@ public class NodeListImpl<T> implements NodeList<T>{
 	}
 
 	@Override
-	public boolean add(Object e) {
+	public boolean add(Object a) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void addFirst(Object e) {
+	public void addFirst(T e) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -61,6 +54,12 @@ public class NodeListImpl<T> implements NodeList<T>{
 	public void clear() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

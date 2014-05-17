@@ -17,15 +17,12 @@ import SearchStrategy.SearchStrategy;
 
 public class Node<T> {
 
-	// T elem, e;
-	// Node<T> next, previous;
 
-	private Node parent;
 	private String name;
 	private String value;
-	private NodeList<T> children = new NodeListImpl<T>();
+	private NodeListImpl<T> children = new NodeListImpl<T>();
 
-	public Node(){
+	public Node(){		
 		this.name = name;
 		this.value = value;
 	}
@@ -33,11 +30,11 @@ public class Node<T> {
 	 * 
 	 * @param a
 	 */
-	public void addChild(Node<T> a) {
-		this.children.add(a);
+	public void addChild(Node<T> child) {
+		this.children.add(child);
 	}
 
-	public NodeList<T> getChildren() {
+	public NodeListImpl<T> getChildren() {
 		return this.children;
 	}
 

@@ -1,5 +1,8 @@
 package SearchStrategy;
 
+import Node.Node;
+import Node.NodeListImpl;
+
 /**
  * Die Interface für die Such-Strategien.
  * 
@@ -8,7 +11,7 @@ package SearchStrategy;
  * @author Hunar Mawlod
  *
  */
-public interface SearchStrategy  {
-	public void search();
-	public void getPath();
+public interface SearchStrategy<T>  {
+	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search );
+	public NodeListImpl<T> getPath();
 }

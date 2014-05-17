@@ -1,10 +1,16 @@
 package SearchStrategy;
 
-public class SuchverfahrenBreitensuche implements SearchStrategy {
+import Node.Node;
+import Node.NodeListImpl;
 
+public class Breitensuche<T> implements SearchStrategy<T> {
+
+	private NodeListImpl<T> path = new NodeListImpl<T>();
+	
 	@Override
-	public void search() {
+	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search) {
 		breadthFirst();
+		return path;
 	}
 
 	public void breadthFirst(){
@@ -24,7 +30,8 @@ public class SuchverfahrenBreitensuche implements SearchStrategy {
 		
 	}
 	@Override
-	public void getPath() {
+	public NodeListImpl<T> getPath() {
+		return path;
 		// TODO Auto-generated method stub
 
 	}

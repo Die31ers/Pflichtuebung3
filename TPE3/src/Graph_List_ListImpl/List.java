@@ -1,5 +1,7 @@
 package Graph_List_ListImpl;
 
+import Node.Node;
+
 //import java.util.LinkedList; // Aufwand sparen
 
 /**
@@ -22,11 +24,11 @@ public interface List<T> extends Iterable<T> {
 	/**
 	 * Fugt am Ende ein Element hinzu.
 	 * 
-	 * @param e
+	 * @param a
 	 *            Element, das hinzugefugt werden soll.
 	 * @return ist immer true
 	 */
-	public abstract boolean add(Object e);
+	public abstract boolean add(T a);
 
 	/**
 	 * Fugt am Anfang ein Element hinzu.

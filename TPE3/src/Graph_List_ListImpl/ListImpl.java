@@ -13,52 +13,56 @@ import java.util.LinkedList;
  * @author Hunar Mawlod
  *
  */
-public class ListImpl<T> implements List<T>{
-
-	LinkedList<T> list = new LinkedList<T>();
-
+public class ListImpl<T> extends LinkedList<T> implements List<T>{
+/*
 	@Override
 	public Iterator<T> iterator() {
-		return list.iterator();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean contains(Object e) {
-		return list.contains(e);
-	}
-
-	public int size() {
-		return list.size();
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public boolean add(Object e) {
-		return list.add(e);
+	public boolean add(T a) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public void addFirst(T e) {
-		list.addFirst(e);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public T peekFirst() {
-		return (T) list.peekFirst(); // T gecastet. Ist das erlaubt?
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return list.isEmpty();
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public T pollFirst() {
-		return (T) list.pollFirst(); // T gecastet. Ist das erlaubt?
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void clear() {
-		list.clear();
+		// TODO Auto-generated method stub
 		
 	}
+
+	
+*/
 }

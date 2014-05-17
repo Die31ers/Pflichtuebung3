@@ -15,9 +15,9 @@ import Node.*;
  * @param <T>
  * 
  */
-public class Graph<T> implements SearchStrategy{
+public class Graph<T>{
 	Node<T> wurzelKnoten; //jeder wurzelKnoten kennt seine "Kinder"
-	NodeListImpl<Node<T>> knoten = new NodeListImpl<Node<T>>();
+	NodeList<Node<T>> knoten = new NodeListImpl<Node<T>>();
 
 	
 	/**
@@ -28,26 +28,12 @@ public class Graph<T> implements SearchStrategy{
 	public NodeList<T> copyInto() {
 		NodeList<T>copy = new NodeListImpl<T>();
 		  for(Node<T>node : this.knoten){
-		  copy.add(node);
+		   copy.add((T) node);
 
 		  }
 		  return copy;
 		
 	}
-	
 
-	
-
-	@Override
-	public void search() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void getPath() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
