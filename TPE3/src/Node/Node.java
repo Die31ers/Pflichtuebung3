@@ -2,6 +2,7 @@ package Node;
 
 import java.util.Iterator;
 
+
 import Graph_List_ListImpl.*;
 import SearchStrategy.SearchStrategy;
 
@@ -19,22 +20,31 @@ public class Node<T> {
 
 
 	private String name;
-	private String value;
-	private NodeListImpl<T> children = new NodeListImpl<T>();
-
-	public Node(){		
+	private T value;
+	private NodeList<T> children = new NodeListImpl<T>();
+	
+	/**
+	 * Konstruktor
+	 * @param name
+	 * @param value
+	 */
+	public Node(String name, T value){		
+		this.children = new NodeListImpl<T>();
 		this.name = name;
 		this.value = value;
 	}
 	/**
-	 * 
-	 * @param a
+	 * Diese Methode tut ein Knoten hinzufuegen
+	 * @param child
 	 */
 	public void addChild(Node<T> child) {
 		this.children.add(child);
 	}
-
-	public NodeListImpl<T> getChildren() {
+	/**
+	 * Durch diese Methode bekommen wir die Kinderknoten raus
+	 * @return
+	 */
+	public NodeList<T> getChildren() {
 		return this.children;
 	}
 
@@ -44,7 +54,7 @@ public class Node<T> {
 	 * @return
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -52,10 +62,10 @@ public class Node<T> {
 	 * 
 	 * @return
 	 */
-	public String getValue() {
-		return value;
+	public T getValue() {
+		return this.value;
 	}
-
+/*
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
 		result = 31 * result + (value != null ? value.hashCode() : 0);
@@ -82,6 +92,6 @@ public class Node<T> {
 		} else if (!value.equals(other.value))
 			return false;
 		return true;
-	}
+	}*/
 
 }

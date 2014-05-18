@@ -1,7 +1,8 @@
 package Graph_List_ListImpl;
 
-import java.util.*;
 
+
+import java.util.*;
 
 import SearchStrategy.*;
 import Node.*;
@@ -17,9 +18,16 @@ import Node.*;
  */
 public class Graph<T>{
 	Node<T> wurzelKnoten; //jeder wurzelKnoten kennt seine "Kinder"
-	NodeList<Node<T>> knoten = new NodeListImpl<Node<T>>();
+	NodeListImpl<T> knoten;
 
+	public Graph (Node<T>wurzelKnoten){
+		this.wurzelKnoten = wurzelKnoten;
+	}
 	
+	public NodeListImpl<T> search(Node<T> search, SearchStrategy<T> strategy) {
+		return strategy.search(this.wurzelKnoten, search);
+	}
+
 	/**
 	 * Die Methode <code>copyInto()</code> kopiert die vorhandene generische 
 	 * Liste in eine andere generische Liste.
@@ -28,7 +36,7 @@ public class Graph<T>{
 	public NodeList<T> copyInto() {
 		NodeList<T>copy = new NodeListImpl<T>();
 		  for(Node<T>node : this.knoten){
-		   copy.add((T) node);
+		   copy.add(node);
 
 		  }
 		  return copy;
@@ -36,4 +44,5 @@ public class Graph<T>{
 	}
 
 
+	
 }

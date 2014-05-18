@@ -21,19 +21,19 @@ public class NodeListImpl<T> implements NodeList<T>{
 	}
 
 	@Override
-	public boolean add(Object a) {
+	public boolean add(Node<T> a) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void addFirst(T e) {
+	public void addFirst(Node<T> e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public T peekFirst() {
+	public Node<T> peekFirst() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,7 +45,7 @@ public class NodeListImpl<T> implements NodeList<T>{
 	}
 
 	@Override
-	public T pollFirst() {
+	public Node<T> pollFirst() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -57,7 +57,7 @@ public class NodeListImpl<T> implements NodeList<T>{
 	}
 
 	@Override
-	public Iterator<T> iterator() {
+	public Iterator<Node<T>> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}

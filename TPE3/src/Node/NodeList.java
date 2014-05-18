@@ -1,8 +1,6 @@
 package Node;
 
 import java.util.Iterator;
-
-
 import Graph_List_ListImpl.List;
 
 /**
@@ -14,6 +12,6 @@ import Graph_List_ListImpl.List;
  * @author Hunar Mawlod
  * 
  */
-public interface NodeList<T>  extends List<T>{
+public interface NodeList<T>  extends List<Node<T>>{
 
 }
