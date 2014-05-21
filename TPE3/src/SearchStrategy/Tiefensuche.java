@@ -11,13 +11,38 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 		this.path = new NodeListImpl<T>();
 	}
 
+
 	@Override
 	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search) {
+		this.found = new NodeListImpl<T>();
 		this.path.clear();
 
-		return null;
+		if (wurzelKnoten.getValue().equals(search.getValue())) {
+			this.path.add(wurzelKnoten);
+			found.add(wurzelKnoten);
+		} else {
+			this.path.add(wurzelKnoten);
+			for (Node<T> besuchterKnoten : wurzelKnoten.getChildren()) {
+				if (!this.path.contains(besuchterKnoten)) {
+					tiefensucheRek(besuchterKnoten, (NodeList<T>) search);
+				}
+			}
+		}
+		return found;
 	}
-
+	
+	private void tiefensucheRek(Node<T> node, NodeList<T> search) {
+		this.path.add(node);
+		for (Node<T> it : node.getChildren()) {
+			if (it.getValue().equals(((Node<T>) search).getValue())) {
+				this.path.add(it);
+			}
+			if (!this.path.contains(it)) {
+				tiefensucheRek(it, search);
+			}
+			}
+		}
+		/*
 	public Node<T> depthFirst(Node<T> aktuellerKnoten,
 			NodeList<T> besuchteKnoten) {
 
@@ -32,20 +57,8 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 		}
 		return aktuellerKnoten;
 	}
+*/
 
-
-
-	/*private void searchRek(Node<T> node, Node<T> search) {
-		this.path.add(node);
-		for (Node<T> it : node.getChildren()) {
-			if (it.getValue().equals(search.getValue())) {
-				this.path.add(it);
-			}
-			if (!this.path.contains(it)) {
-				searchRek(it, search);
-			}
-		}
-	}*/
 	@Override
 	public NodeListImpl<T> getPath() {
 		return this.path;

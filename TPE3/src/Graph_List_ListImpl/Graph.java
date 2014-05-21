@@ -2,6 +2,7 @@ package Graph_List_ListImpl;
 
 
 
+
 import java.util.*;
 
 import SearchStrategy.*;
@@ -22,6 +23,7 @@ public class Graph<T>{
 
 	public Graph (Node<T>wurzelKnoten){
 		this.wurzelKnoten = wurzelKnoten;
+		this.knoten = new NodeListImpl<T>();
 	}
 	
 	public NodeListImpl<T> search(Node<T> search, SearchStrategy<T> strategy) {
@@ -41,6 +43,9 @@ public class Graph<T>{
 		  }
 		  return copy;
 		
+	}
+	public Node<T> getFirstNode() {
+		return this.wurzelKnoten;
 	}
 
 

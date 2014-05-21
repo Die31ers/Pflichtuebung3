@@ -1,4 +1,5 @@
 package JUnitTestklasse;
+
 import Graph_List_ListImpl.Graph;
 import Node.*;
 import SearchStrategy.*;
@@ -44,8 +45,8 @@ public class GraphSim {
 
 		Graph<String> graph = new Graph<String>(a);
 
-	//	System.out.println(graph.search(k, breitensuche));
-		//System.out.println("Breitensuche: " + breitensuche.getPath());
+		// System.out.println(graph.search(k, breitensuche));
+		// System.out.println("Breitensuche: " + breitensuche.getPath());
 
 		System.out.println(graph.search(k, tiefensuche));
 		System.out.println("Tiefensuche: " + tiefensuche.getPath());
