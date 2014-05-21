@@ -14,4 +14,4 @@ import Node.NodeListImpl;
 public interface SearchStrategy<T>  {
 	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search );
 	public NodeListImpl<T> getPath();
-}
+}//nase
