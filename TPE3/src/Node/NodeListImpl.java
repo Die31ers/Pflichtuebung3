@@ -62,5 +62,10 @@ public class NodeListImpl<T> implements NodeList<T>{
 		return null;
 	}
 
+	public Node<T> removeFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

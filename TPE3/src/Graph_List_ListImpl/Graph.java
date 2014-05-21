@@ -1,9 +1,7 @@
 package Graph_List_ListImpl;
 
-
-
-
 import java.util.*;
+
 
 import SearchStrategy.*;
 import Node.*;
@@ -18,12 +16,11 @@ import Node.*;
  * 
  */
 public class Graph<T>{
-	Node<T> wurzelKnoten; //jeder wurzelKnoten kennt seine "Kinder"
+	private Node<T> wurzelKnoten; //jeder wurzelKnoten kennt seine "Kinder"
 	NodeListImpl<T> knoten;
 
 	public Graph (Node<T>wurzelKnoten){
 		this.wurzelKnoten = wurzelKnoten;
-		this.knoten = new NodeListImpl<T>();
 	}
 	
 	public NodeListImpl<T> search(Node<T> search, SearchStrategy<T> strategy) {
@@ -37,14 +34,17 @@ public class Graph<T>{
 	 */
 	public NodeList<T> copyInto() {
 		NodeList<T>copy = new NodeListImpl<T>();
-		  for(Node<T>node : this.knoten){
+		copy.add(this.wurzelKnoten); 
+		for(Node<T>node : this.knoten){
 		   copy.add(node);
 
 		  }
 		  return copy;
 		
 	}
-	public Node<T> getFirstNode() {
+	
+
+	public Node<T> getWurzelKnoten() {
 		return this.wurzelKnoten;
 	}
 

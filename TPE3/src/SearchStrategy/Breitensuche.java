@@ -1,39 +1,48 @@
 package SearchStrategy;
 
 import Node.Node;
+
 import Node.NodeListImpl;
 
 public class Breitensuche<T> implements SearchStrategy<T> {
-
 	private NodeListImpl<T> path = new NodeListImpl<T>();
-	
+
+	/**
+	 * Implemetierte Methode search() welche die eigentliche Breitensuche
+	 * verwirklicht und nebenher den gelaufenen Pfad speichert.
+	 */
 	@Override
-	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search) {
-		breadthFirst();
-		return path;
+	public NodeListImpl<T> search(Node<T> firstNode, Node<T> search) {
+		Node<T> tempNode;
+		NodeListImpl<T> tmpList = new NodeListImpl<T>();
+		NodeListImpl<T> found = new NodeListImpl<T>();
+
+		this.path.clear();
+		this.path.add(firstNode);
+
+		if (search.getValue().equals(firstNode.getValue())) {
+			found.add(firstNode);
+		} else {
+			tmpList.add(firstNode);
+			while (!tmpList.isEmpty()) {
+				tempNode = tmpList.removeFirst();
+				for (Node<T> it : tempNode.getChildren()) {
+					if (search.getValue().equals(it.getValue())) {
+						found.add(it);
+					}
+					if (!this.path.contains(it)) {;
+						tmpList.add(it);
+						this.path.add(it);
+					}
+				}
+			}
+		}
+		return found;
 	}
 
-	public void breadthFirst(){
-		/*
-		 * proc breathFirst(v) 
-		 * Erzeuge Wareschlange q und füge v in q ein;
-		 * Markiere v als besucht; 
-		 * while (q nicht leer ist){ 
-		 * entnehme vorderstes Element aus q und weise es w zu; 
-		 * verarbeite w;
-		 *  for jeden nachfolger wi von w 
-		 *  if wi noch nicht besucht then 
-		 *  füge wi in q ein; markiere wi
-		 * als besucht
-		 */
-		
-		
-	}
 	@Override
 	public NodeListImpl<T> getPath() {
-		return path;
 		// TODO Auto-generated method stub
-
+		return this.path;
 	}
-
 }

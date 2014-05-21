@@ -2,6 +2,7 @@ package SearchStrategy;
 
 
 import Node.*;
+import Graph_List_ListImpl.Graph;
 
 public class Tiefensuche<T> implements SearchStrategy<T> {
 	private NodeListImpl<T> path = new NodeListImpl<T>();
@@ -22,9 +23,9 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 			found.add(wurzelKnoten);
 		} else {
 			this.path.add(wurzelKnoten);
-			for (Node<T> besuchterKnoten : wurzelKnoten.getChildren()) {
-				if (!this.path.contains(besuchterKnoten)) {
-					tiefensucheRek(besuchterKnoten, (NodeList<T>) search);
+			for (Node<T> it : wurzelKnoten.getChildren()) {
+				if (!this.path.contains(it)) {
+					tiefensucheRek(it, (NodeList<T>) search);
 				}
 			}
 		}
