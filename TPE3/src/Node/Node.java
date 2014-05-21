@@ -2,6 +2,7 @@ package Node;
 
 import java.util.Iterator;
 
+
 import Graph_List_ListImpl.*;
 import SearchStrategy.SearchStrategy;
 
@@ -17,26 +18,32 @@ import SearchStrategy.SearchStrategy;
 
 public class Node<T> {
 
-	// T elem, e;
-	// Node<T> next, previous;
 
-	private Node parent;
 	private String name;
-	private String value;
+	private T value;
 	private NodeList<T> children = new NodeListImpl<T>();
-
-	public Node(){
+	
+	/**
+	 * Konstruktor
+	 * @param name
+	 * @param value
+	 */
+	public Node(String name, T value){		
+		this.children = new NodeListImpl<T>();
 		this.name = name;
 		this.value = value;
 	}
 	/**
-	 * 
-	 * @param a
+	 * Diese Methode tut ein Knoten hinzufuegen
+	 * @param child
 	 */
-	public void addChild(Node<T> a) {
-		this.children.add(a);
+	public void addChild(Node<T> child) {
+		this.children.add(child);
 	}
-
+	/**
+	 * Durch diese Methode bekommen wir die Kinderknoten raus
+	 * @return
+	 */
 	public NodeList<T> getChildren() {
 		return this.children;
 	}
@@ -47,7 +54,7 @@ public class Node<T> {
 	 * @return
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -55,36 +62,11 @@ public class Node<T> {
 	 * 
 	 * @return
 	 */
-	public String getValue() {
-		return value;
+	public T getValue() {
+		return this.value;
 	}
 
-	public int hashCode() {
-		int result = name != null ? name.hashCode() : 0;
-		result = 31 * result + (value != null ? value.hashCode() : 0);
-		result = 31 * result + (children != null ? children.hashCode() : 0);
-		return result;
+	public String toString(){
+		return name;
 	}
-
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Node other = (Node) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (value == null) {
-			if (other.value != null)
-				return false;
-		} else if (!value.equals(other.value))
-			return false;
-		return true;
-	}
-
 }
