@@ -1,68 +1,71 @@
 package SearchStrategy;
 
-
 import Node.*;
 import Graph_List_ListImpl.Graph;
 
+/**
+ * Klasse um die Tiefensuche zu verwirklichen. Diese Klasse implementiert das
+ * Interface SearchStrategy und somit auch dessen beide Methoden search und
+ * getPath. Zusaetzlich besitzt diese methode noch eine Liste um den gelaufenen
+ * Pfad zu speichern.
+ * 
+ * @author Johannes Weber
+ * @author Amanpreet Singh Chahota
+ * @author Yannick Appolain Fowa
+ * 
+ * @param <T>
+ *            Ein beliebiger Datentyp
+ */
 public class Tiefensuche<T> implements SearchStrategy<T> {
+
 	private NodeListImpl<T> path = new NodeListImpl<T>();
-	private NodeListImpl<T> found = new NodeListImpl<T>();
-
-	public Tiefensuche() {
-		this.path = new NodeListImpl<T>();
-	}
-
+	private NodeListImpl<T> found;
 
 	@Override
-	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search) {
+	public NodeListImpl<T> search(Node<T> firstNode, Node<T> search) {
 		this.found = new NodeListImpl<T>();
 		this.path.clear();
 
-		if (wurzelKnoten.getValue().equals(search.getValue())) {
-			this.path.add(wurzelKnoten);
-			found.add(wurzelKnoten);
+		if (firstNode.getValue().equals(search.getValue())) {
+			this.path.add(firstNode);
+			found.add(firstNode);
 		} else {
-			this.path.add(wurzelKnoten);
-			for (Node<T> it : wurzelKnoten.getChildren()) {
+			this.path.add(firstNode);
+			for (Node<T> it : firstNode.getChildren()) {
 				if (!this.path.contains(it)) {
-					tiefensucheRek(it, (NodeList<T>) search);
+					searchRek(it, search);
 				}
 			}
 		}
 		return found;
 	}
-	
-	private void tiefensucheRek(Node<T> node, NodeList<T> search) {
+
+	/**
+	 * Hilfsklasse fuer die Tiefensuche. Ruft die eigentliche Rekursion der
+	 * Tiefensuche auf.
+	 * 
+	 * @param node
+	 *            der zu durchsuchende Knoten
+	 * @param search
+	 *            der gesuchte Knoten
+	 */
+	private void searchRek(Node<T> node, Node<T> search) {
 		this.path.add(node);
 		for (Node<T> it : node.getChildren()) {
-			if (it.getValue().equals(((Node<T>) search).getValue())) {
-				this.path.add(it);
+			if (it.getValue().equals(search.getValue())) {
+				this.found.add(it);
 			}
 			if (!this.path.contains(it)) {
-				tiefensucheRek(it, search);
+				searchRek(it, search);
 			}
-			}
 		}
-		/*
-	public Node<T> depthFirst(Node<T> aktuellerKnoten,
-			NodeList<T> besuchteKnoten) {
-
-		this.path.add(aktuellerKnoten);
-
-		if (!besuchteKnoten.contains(aktuellerKnoten)) {
-			besuchteKnoten.add(aktuellerKnoten);
-		}
-
-		for (Node<T> kindKnoten : aktuellerKnoten.getChildren()) {
-			depthFirst((Node<T>) kindKnoten, besuchteKnoten);
-		}
-		return aktuellerKnoten;
 	}
-*/
 
+	/**
+	 * @return liefert den Pfad der letzten Suche zurueck.
+	 */
 	@Override
 	public NodeListImpl<T> getPath() {
 		return this.path;
 	}
-
 }

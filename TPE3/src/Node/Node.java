@@ -3,6 +3,8 @@ package Node;
 import java.util.Iterator;
 
 
+
+
 import Graph_List_ListImpl.*;
 import SearchStrategy.SearchStrategy;
 
@@ -21,7 +23,7 @@ public class Node<T> {
 
 	private String name;
 	private T value;
-	private NodeList<T> children = new NodeListImpl<T>();
+	private NodeListImpl<T> children = new NodeListImpl<T>();
 	
 	/**
 	 * Konstruktor
@@ -38,14 +40,14 @@ public class Node<T> {
 	 * @param child
 	 */
 	public void addChild(Node<T> child) {
-		this.children.add(child);
+		((List<Node<T>>) this.children).add(child);
 	}
 	/**
 	 * Durch diese Methode bekommen wir die Kinderknoten raus
 	 * @return
 	 */
 	public NodeList<T> getChildren() {
-		return this.children;
+		return (NodeList<T>) this.children;
 	}
 
 	/**
@@ -66,6 +68,9 @@ public class Node<T> {
 		return this.value;
 	}
 
+	/**
+	 * Ausgabe als String
+	 */
 	public String toString(){
 		return name;
 	}

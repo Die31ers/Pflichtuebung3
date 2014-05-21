@@ -9,7 +9,7 @@ public class Simulation {
 
 	public static <T> void main(String[] args) {
 
-		Tiefensuche<String> tiefensuche = new Tiefensuche<String>();
+		Tiefensuche123<String> tiefensuche = new Tiefensuche123<String>();
 		Breitensuche<String> breitensuche = new Breitensuche<String>();
 		Node<String> a = new Node<String>("A", "A");
 		Node<String> b = new Node<String>("B", "B");
