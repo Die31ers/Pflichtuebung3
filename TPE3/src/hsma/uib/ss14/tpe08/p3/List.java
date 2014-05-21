@@ -1,12 +1,10 @@
 package hsma.uib.ss14.tpe08.p3;
 
-import java.util.LinkedList; // Aufwand sparen
-
 /**
- * Einfache Datenstruktur zur Verwaltung einer Reihe von Elementen.
  * 
- * @param <T>
- *            Typ der gespeicherten Elemente.
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  */
 public interface List<T> extends Iterable<T> {
 	/**
