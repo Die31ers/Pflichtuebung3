@@ -1,35 +1,69 @@
 package hsma.uib.ss14.tpe08.p3;
-
 /**
- * Klasse Graph
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
  *
  */
-public class Graph implements SearchStrategy{
+
+public class Graph {
 	
-	public void copyInto(){
-		// TODO Übergabeparameter
+	
+
+	/**
+	 * Jeder Graph kann eine Wurzel und min. einen Knoten haben. 
+	 */
+	public Node wurzel;
+	public NodeList<Node> knoten;
+
+	
+	/**
+	 * Konstruktor von Graph.
+	 * 
+	 * @param wurzel des Graphen.
+	 */
+	public Graph(Node wurzel) {
+		this.wurzel = wurzel;
+
+		this.knoten = new NodeListImplementierung();
+		knoten.add(wurzel);
 	}
 
-	@Override
-	public void search() {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Liefert eine Kopie des Knotens.
+	 * 
+	 * @param kopie des Knotens.
+	 */
+	public void copyInto(NodeList<Node> kopie) {
+		kopie = knoten;
+	}
+	
+	/**
+	 * Sucht nach einem bestimmten knoten.
+	 * 
+	 * @param suchStrategie
+	 * @param ziel
+	 * 
+	 * @return den gesuchten Knoten.
+	 */
+	public NodeList search(SearchStrategy suchStrategie, Node ziel) {
+		NodeList gesuchterKnoten = suchStrategie.search(wurzel, ziel);
+		return gesuchterKnoten;
+
 	}
 
-	@Override
-	public void getPath() {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Liefert den gesuchten Knoten zur�ck.
+	 * 
+	 * @param suchStrategie
+	 * 
+	 * @return den gesuchten Knoten.
+	 */
+	public NodeList getPath(SearchStrategy suchStrategie) {
+		NodeList gesuchterKnoten = suchStrategie.getPath(wurzel);
+		return gesuchterKnoten;
+	
+	
 	}
-
-	@Override
-	public void search(Node start) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
