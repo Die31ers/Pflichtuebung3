@@ -22,18 +22,32 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 	private NodeListImpl<T> found;
 
 	@Override
-	public NodeListImpl<T> search(Node<T> firstNode, Node<T> search) {
+	public NodeListImpl<T> search(Node<T> wurzelKnoten, Node<T> search) {
 		this.found = new NodeListImpl<T>();
 		this.path.clear();
 
-		if (firstNode.getValue().equals(search.getValue())) {
-			this.path.add(firstNode);
-			found.add(firstNode);
+		return helpSearch(wurzelKnoten, search);
+
+	}
+
+	/**
+	 * Hilfsklasse für die Methode
+	 * <code>search(Node< T > firstNode, Node< T > search)</code>
+	 * 
+	 * @param wurzelKnoten
+	 * @param search
+	 * @return
+	 */
+	private NodeListImpl<T> helpSearch(Node<T> wurzelKnoten, Node<T> search) {
+
+		if (wurzelKnoten.getValue().equals(search.getValue())) {
+			this.path.add(wurzelKnoten);
+			found.add(wurzelKnoten);
 		} else {
-			this.path.add(firstNode);
-			for (Node<T> it : firstNode.getChildren()) {
-				if (!this.path.contains(it)) {
-					searchRek(it, search);
+			this.path.add(wurzelKnoten);
+			for (Node<T> besuchterKnoten : wurzelKnoten.getChildren()) {
+				if (!this.path.contains(besuchterKnoten)) {
+					tiefensucheRekursiv(besuchterKnoten, search);
 				}
 			}
 		}
@@ -44,19 +58,19 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 	 * Hilfsklasse fuer die Tiefensuche. Ruft die eigentliche Rekursion der
 	 * Tiefensuche auf.
 	 * 
-	 * @param node
+	 * @param aktuellerKnoten
 	 *            der zu durchsuchende Knoten
 	 * @param search
 	 *            der gesuchte Knoten
 	 */
-	private void searchRek(Node<T> node, Node<T> search) {
-		this.path.add(node);
-		for (Node<T> it : node.getChildren()) {
-			if (it.getValue().equals(search.getValue())) {
-				this.found.add(it);
+	private void tiefensucheRekursiv(Node<T> aktuellerKnoten, Node<T> search) {
+		this.path.add(aktuellerKnoten);
+		for (Node<T> besuchterKnoten : aktuellerKnoten.getChildren()) {
+			if (besuchterKnoten.getValue().equals(search.getValue())) {
+				this.found.add(besuchterKnoten);
 			}
-			if (!this.path.contains(it)) {
-				searchRek(it, search);
+			if (!this.path.contains(besuchterKnoten)) {
+				tiefensucheRekursiv(besuchterKnoten, search);
 			}
 		}
 	}
