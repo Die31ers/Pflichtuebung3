@@ -1,84 +1,82 @@
 package hsma.uib.ss14.tpe08.p3;
 
-
 /**
- * Klasse Graph
+ * Klasse welche einen generischen Graphen implementiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
- *
+ * 
+ * @param <T>
+ *            Dynamischer Typ des Graphen
+ * 
  */
-public class Graph<T>{
-	
+public class Graph<T> {
 	/**
-	 * Jeder Graph kann eine Wurzel und min. einen Knoten haben. 
+	 * Dynamischer Typ-Parameter, welcher den Startknoten des Graphen
+	 * implementiert.
 	 */
-	public Node<T> wurzel;
-	public NodeList<T> knoten;
+	private Node<T> root;
 
-	
 	/**
-	 * Konstruktor von Graph.
+	 * Konstruktor des Graphen.
 	 * 
-	 * @param wurzel des Graphen.
+	 * @param root
+	 *            Den Startknoten des Graphen
 	 */
-	public Graph(Node<T> wurzel) {
-		this.wurzel = wurzel;
-
-		this.knoten = new NodeListImpl<T>();
-		knoten.add(wurzel);
+	public Graph(Node<T> root) {
+		this.root = root;
 	}
 
 	/**
-	 * Kopiert alle Knoten des Graphen in eine neue Liste
+	 * Methode um den Startknoten des Graphen zu bekommen.
 	 * 
-	 * @param list
-	 *            Die Liste in welche die Knoten kopiert werden.
-	 * @return die neue gefuellte Liste
+	 * @return Den Startknoten des Graphen
 	 */
-	public NodeListImpl<T> copyInto(NodeListImpl<T> list) {
-		return copyIntoRek(this.wurzel, list);
+	public Node<T> getRoot() {
+		return this.root;
 	}
 
 	/**
-	 * Eigentliche Rekursive Methode. In dieser Methode wird nochmal mit der
-	 * Tiefensuche durch den Graphen gegangen um die einzelnen Knoten in einer
-	 * separaten Liste zu speichern.
+	 * Methode, welche, mittels Funktionsübergabe (Callback) eine Klasse called.
 	 * 
-	 * @param start
-	 *            Der Anfangspunkt
-	 * @param list
-	 *            Die Liste in welche kopiert wird
-	 * @return eine neue Liste
+	 * @param wert
+	 *            Der Wert der gesucht werden soll
+	 * @param methode
+	 *            Welche Klasse durch den Callback aufgerufen werden soll
 	 */
-	private NodeListImpl<T> copyIntoRek(Node<T> start, NodeListImpl<T> list) {
-		if (start != null) {
-			if (!list.contains(start)) {
-				list.add(start);
-				for (Node<T> it : start.getChildren()) {
-					copyIntoRek(it, list);
-				}
-			}
+	public NodeList<Node<T>> search(T wert, SearchStrategy<T> methode) {
+		return methode.search(root, wert);
+	}
+
+	/**
+	 * Methode, welche eine Rekursive Methode zum Kopieren des Graphen in eine
+	 * Liste aufruft.
+	 * 
+	 * @return Die Rückgabe(Liste) der rekursiven Methode
+	 */
+	public NodeListImpl<Node<T>> copyInto() {
+		return copyIntoRek(root, new NodeListImpl<Node<T>>());
+
+	}
+
+	/**
+	 * Rekursive Methode, welche rekursiv den Grapheninhalt in eine Liste
+	 * generischen Typs(Eine Node generischen) Typs kopiert.
+	 * 
+	 * @param root
+	 *            Startknoten des Graphen
+	 * @param elements
+	 *            Leere Dynamische Liste zum Füllen
+	 * @return Eine Liste, welche alle Elemente des Graphen enhällt
+	 */
+	private NodeListImpl<Node<T>> copyIntoRek(Node<T> root,
+			NodeListImpl<Node<T>> elements) {
+		for (Node<T> nodes : root.getChildren()) {
+			copyIntoRek(nodes, elements);
 		}
-		return list;
+		elements.add(root);
+		return elements;
 	}
-	
-	/**
-	 * Sucht nach einem bestimmten knoten.
-	 * 
-	 * @param suchStrategie
-	 * @param ziel
-	 * 
-	 * @return den gesuchten Knoten.
-	 */
-	public NodeList<T> search(Node<T> ziel, SearchStrategy<T> suchStrategie) {
-		NodeList<T> gesuchterKnoten = suchStrategie.search(wurzel, ziel);
-		return gesuchterKnoten;
-
-	}
-
-
-
 
 }

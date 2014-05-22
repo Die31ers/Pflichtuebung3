@@ -3,13 +3,17 @@ package hsma.uib.ss14.tpe08.p3;
 /**
  * Einfache Datenstruktur zur Verwaltung einer Reihe von Elementen.
  * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ * 
  * @param <T>
  *            Typ der gespeicherten Elemente.
+ * 
  */
 public interface List<T> extends Iterable<T> {
 	/**
-	 * 
-	  Uberpruft, ob ein Element bereits vorhanden ist.
+	 * Uberpruft, ob ein Element bereits vorhanden ist.
 	 * 
 	 * @param e
 	 *            Element auf das gepruft werden soll
@@ -42,8 +46,7 @@ public interface List<T> extends Iterable<T> {
 	public abstract T peekFirst();
 
 	/**
-	 * 
-	  Uberpruft, ob Elemente vorhanden sind.
+	 * Uberpruft, ob Elemente vorhanden sind.
 	 * 
 	 * @return true wenn die Datenstruktur leer ist, andernlass false
 	 */
@@ -57,7 +60,8 @@ public interface List<T> extends Iterable<T> {
 	public abstract T pollFirst();
 
 	/**
-	 * Loscht den Inhalt der List.
+	 * Loscht den Inhalt der List.
 	 */
 	public abstract void clear();
+
 }

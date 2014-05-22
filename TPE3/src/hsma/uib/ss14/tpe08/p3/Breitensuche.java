@@ -1,66 +1,49 @@
 package hsma.uib.ss14.tpe08.p3;
 
-
-
-import java.util.Queue;
-
-
-
 /**
- * Klasse Breitensuche
+ * Klasse, welche eine Breitensuche über einen dynamischen Typ T implementiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
  * 
+ * @param <T>
+ *            Dynamischer Parameter
+ * 
  */
-public class Breitensuche<T> implements SearchStrategy<T> {
-
-	private NodeListImpl<T> path = new NodeListImpl<T>();
+public class Breitensuche<T> extends SearchHelper<T> implements
+		SearchStrategy<T> {
 
 	/**
-	 * Implemetierte Methode search() welche die eigentliche Breitensuche
-	 * verwirklicht und nebenher den gelaufenen Pfad speichert.
+	 * Implementierung der Breitensuche (Levelorder).
+	 * 
+	 * @param root
+	 *            Startknoten des Graphen
+	 * @param wert
+	 *            Der gesuchte Wert
+	 * @return Eine dynamische Liste der Vorkommen
 	 */
 	@Override
-	public NodeListImpl<T> search(Node<T> start, Node<T> ziel) {
-		Node<T> tempNode;
-		Queue<Node<T>> q = new NodeListImpl<T>();
-		NodeListImpl<T> found = new NodeListImpl<T>();
-
-		this.path.clear();
-		this.path.add(start);
-
-		if (ziel.getValue().equals(start.getValue())) {
-			found.add(start);
-		} else {
-			q.add(start);
-			while (!q.isEmpty()) {
-				tempNode = q.remove();
-				System.out.println(tempNode);
-				for (Node<T> it : tempNode.getChildren()) {
-					if (ziel.getValue().equals(it.getValue())) {
-						found.add(it);
-					}
-					if (!this.path.contains(it)) {;
-						q.add(it);
-						this.path.add(it);
-					}
+	public NodeListImpl<Node<T>> search(Node<T> root, T wert) {
+		NodeListImpl<Node<T>> results = new NodeListImpl<Node<T>>();
+		NodeListImpl<Node<T>> q = new NodeListImpl<Node<T>>();
+		q.addFirst(root);
+		Node<T> element;
+		this.getPath().clear();
+		// Solange noch Elemente in der Liste sind
+		while (!q.isEmpty()) {
+			element = q.getLast();
+			if (element.getValue() == wert) {
+				results.add(element);
+			}
+			q.removeLast();
+			this.getPath().add(element);
+			for (Node<T> node : element.getChildren()) {
+				if (!this.getPath().contains(node)) {
+					q.addFirst(node);
 				}
 			}
 		}
-		return found;
-	}
-
-	/**
-	 * Implementierte Methode getPath.
-	 * 
-	 * @return liefert den zuvor gelaufenen Pfad zurueck.
-	 */
-
-	@Override
-	public NodeListImpl<T> getPath() {
-		return this.path;
-
+		return results;
 	}
 }
