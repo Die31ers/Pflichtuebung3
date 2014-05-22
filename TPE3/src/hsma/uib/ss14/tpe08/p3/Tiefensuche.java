@@ -17,21 +17,21 @@ package hsma.uib.ss14.tpe08.p3;
 public class Tiefensuche<T> implements SearchStrategy<T> {
 
 	private NodeListImpl<T> path = new NodeListImpl<T>();
-	private NodeListImpl<T> found;
+	private NodeListImpl<T> found; // anstelle von stack?
 
 	@Override
-	public NodeListImpl<T> search(Node<T> firstNode, Node<T> search) {
+	public NodeListImpl<T> search(Node<T> start, Node<T> ziel) {
 		this.found = new NodeListImpl<T>();
 		this.path.clear();
 
-		if (firstNode.getValue().equals(search.getValue())) {
-			this.path.add(firstNode);
-			found.add(firstNode);
+		if (start.getValue().equals(ziel.getValue())) {
+			this.path.add(start);
+			found.add(start);
 		} else {
-			this.path.add(firstNode);
-			for (Node<T> it : firstNode.getChildren()) {
+			this.path.add(start);
+			for (Node<T> it : start.getChildren()) {
 				if (!this.path.contains(it)) {
-					searchRek(it, search);
+					searchRek(it, ziel);
 				}
 			}
 		}

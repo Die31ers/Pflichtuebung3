@@ -1,5 +1,7 @@
 package hsma.uib.ss14.tpe08.p3;
 
+import java.util.Queue;
+
 /**
  * Klasse um die Breitensuche zu verwirklichen. Diese Klasse implementiert das
  * Interface SearchStrategy und somit auch dessen beide Methoden search und
@@ -22,26 +24,26 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 	 * verwirklicht und nebenher den gelaufenen Pfad speichert.
 	 */
 	@Override
-	public NodeListImpl<T> search(Node<T> firstNode, Node<T> search) {
+	public NodeListImpl<T> search(Node<T> start, Node<T> ziel) {
 		Node<T> tempNode;
-		NodeListImpl<T> tmpList = new NodeListImpl<T>();
+		Queue<Node<T>> q = new NodeListImpl<T>();
 		NodeListImpl<T> found = new NodeListImpl<T>();
 
 		this.path.clear();
-		this.path.add(firstNode);
+		this.path.add(start);
 
-		if (search.getValue().equals(firstNode.getValue())) {
-			found.add(firstNode);
+		if (ziel.getValue().equals(start.getValue())) {
+			found.add(start);
 		} else {
-			tmpList.add(firstNode);
-			while (!tmpList.isEmpty()) {
-				tempNode = tmpList.removeFirst();
+			q.add(start);
+			while (!q.isEmpty()) {
+				tempNode = q.remove();
 				for (Node<T> it : tempNode.getChildren()) {
-					if (search.getValue().equals(it.getValue())) {
-						found.add(it);
+					if (ziel.getValue().equals(it.getValue())) {
+						found.add(it); // muss weg!
 					}
 					if (!this.path.contains(it)) {;
-						tmpList.add(it);
+						q.add(it);
 						this.path.add(it);
 					}
 				}
