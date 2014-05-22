@@ -11,6 +11,6 @@ package hsma.uib.ss14.tpe08.p3;
  *            Dynamische Node
  * 
  */
-public interface NodeList<Node> extends Iterable<Node> {
+public interface NodeList<T> extends Iterable<T> {
 
 }

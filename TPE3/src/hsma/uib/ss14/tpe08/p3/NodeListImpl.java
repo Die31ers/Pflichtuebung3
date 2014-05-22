@@ -11,7 +11,12 @@ package hsma.uib.ss14.tpe08.p3;
  *
  * @param <Node> Dynamische Node der Implementierung
  */
-public class NodeListImpl<Node>
-        extends ListImpl<Node> implements NodeList<Node> {
+public class NodeListImpl<T>
+        extends ListImpl<T> implements NodeList<T> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 }
