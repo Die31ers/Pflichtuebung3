@@ -23,7 +23,7 @@ public interface SearchStrategy<T> {
 	 *            den Anfangsknoten
 	 * @return Eine Liste mit den gefundenen Knoten
 	 */
-	abstract NodeListImpl<T> search(Node<T> start, Node<T> ziel);
+	abstract NodeListImpl<T> search(Node<T> start, T ziel);
 
 	/**
 	 * Abstrakte methode welche den Pfad der letzten Suche zurueckgibt.

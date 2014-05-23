@@ -45,9 +45,9 @@ public class GraphSim2 {
 		d.addChild(p);
 
 		Graph<String> graph = new Graph<String>(a);
-		System.out.println(graph.search(p, tiefensuche));
+		System.out.println(graph.search("P", tiefensuche));
 		System.out.println("Tiefensuche: " + tiefensuche.getPath());
-		System.out.println(graph.search(p, breitensuche));
+		System.out.println(graph.search("P", breitensuche));
 		System.out.println("Breitensuche: " + breitensuche.getPath());
 
 	}

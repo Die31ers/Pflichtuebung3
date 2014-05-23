@@ -16,27 +16,27 @@ package hsma.uib.ss14.tpe08.p3;
  */
 public class Graph<T> {
 
-	private Node<T> firstNode;
+	private Node<T> wurzelKnoten;
 
 	/**
 	 * Konstruktor eines Graphen
 	 * 
-	 * @param firstNode
+	 * @param wurzelKnoten
 	 *            der Knoten mit welchem der Graph beginnen soll.
 	 */
-	public Graph(Node<T> firstNode) {
-		this.firstNode = firstNode;
+	public Graph(Node<T> wurzelKnoten) {
+		this.wurzelKnoten = wurzelKnoten;
 	}
 
 	/**
-	 * @param search
+	 * @param gesucht
 	 *            der Knoten der gesucht werden soll.
 	 * @param strategy
 	 *            die gewaehlte Suchstrategie
 	 * @return Eine Liste der uebereinstimmenden Knoten
 	 */
-	public NodeListImpl<T> search(Node<T> search, SearchStrategy<T> strategy) {
-		return strategy.search(this.firstNode, search);
+	public NodeListImpl<T> search(T gesucht, SearchStrategy<T> strategy) {
+		return strategy.search(wurzelKnoten, gesucht);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Graph<T> {
 	 * @return die neue gefuellte Liste
 	 */
 	public NodeListImpl<T> copyInto(NodeListImpl<T> list) {
-		return copyIntoRek(this.firstNode, list);
+		return copyIntoRek(this.wurzelKnoten, list);
 	}
 
 	/**
@@ -77,6 +77,6 @@ public class Graph<T> {
 	 * @return liefert den Anfangsknoten
 	 */
 	public Node<T> getFirstNode() {
-		return this.firstNode;
+		return this.wurzelKnoten;
 	}
 }

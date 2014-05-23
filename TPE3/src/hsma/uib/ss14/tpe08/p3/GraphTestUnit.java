@@ -99,17 +99,17 @@ public class GraphTestUnit {
 
 		Graph<String> graph = new Graph<String>(a);
 		
-		assertEquals(found, graph.search(h, breitensuche));
+		assertEquals(found, graph.search("H", breitensuche));
 		assertEquals(breiten, breitensuche.getPath());
 		
-		assertEquals(found, graph.search(h, tiefensuche));
+		assertEquals(found, graph.search("H", tiefensuche));
 		assertEquals(tiefen, tiefensuche.getPath());
 		
-		assertEquals(notfound, graph.search(x, breitensuche));
-		assertEquals(notfound, graph.search(x, tiefensuche));
+		assertEquals(notfound, graph.search("X", breitensuche));
+		assertEquals(notfound, graph.search("X", tiefensuche));
 		
-		assertEquals(first, graph.search(a, breitensuche));
-		assertEquals(first, graph.search(a, tiefensuche));
+		assertEquals(first, graph.search("A", breitensuche));
+		assertEquals(first, graph.search("A", tiefensuche));
 		
 		assertEquals(tiefen, graph.copyInto(copy));
 	}

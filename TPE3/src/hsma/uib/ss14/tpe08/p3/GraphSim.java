@@ -21,7 +21,7 @@ public class GraphSim {
 		Node<String> h = new Node<String>("H", "H");
 		Node<String> i = new Node<String>("I", "I");
 		Node<String> j = new Node<String>("J", "J");
-		Node<String> k = new Node<String>("K", "K");
+		Node<String> k = new Node<String>("K", "110");
 		
 		a.addChild(d);
 		a.addChild(c);
@@ -41,10 +41,10 @@ public class GraphSim {
 
 		Graph<String> graph = new Graph<String>(a);
 		
-		System.out.println(graph.search(k, breitensuche));
+		System.out.println(graph.search("K", breitensuche));
 		System.out.println("Breitensuche: " + breitensuche.getPath());
 		
-		System.out.println(graph.search(k, tiefensuche));
+		System.out.println(graph.search("K", tiefensuche));
 		System.out.println("Tiefensuche: " + tiefensuche.getPath());
 	}
 }
