@@ -1,9 +1,9 @@
 package hsma.uib.ss14.tpe08.p3;
 
 /**
- * @author Johannes Weber
- * @author Amanpreet Singh Chahota
- * @author Yannick Appolain Fowa
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
  */
 public class GraphSim2 {
 

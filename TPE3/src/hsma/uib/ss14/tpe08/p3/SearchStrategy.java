@@ -3,7 +3,7 @@ package hsma.uib.ss14.tpe08.p3;
 
 /**
  * Schnittstelle Search Strategy welche die zwei abstrakten Methoden search und
- * getPath fuer die Klassen Breitensuche und tiefensuche bereitstellt.
+ * getPath fuer die Klassen Breitensuche und Tiefensuche bereitstellt.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum

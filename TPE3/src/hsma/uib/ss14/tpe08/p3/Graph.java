@@ -4,7 +4,7 @@ package hsma.uib.ss14.tpe08.p3;
 /**
  * 
  * Die Klasse eines Graphen. jeder Graph besteht aus einem
- * Anfangsknoten(firstNode) von welchem sich alle anderen Knoten ableiten
+ * Anfangsknoten(wurzelKnoten) von welchem sich alle anderen Knoten ableiten
  * lassen.
  * 
  * @author Giang Pham

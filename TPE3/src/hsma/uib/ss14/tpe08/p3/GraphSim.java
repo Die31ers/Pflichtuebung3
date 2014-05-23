@@ -41,10 +41,10 @@ public class GraphSim {
 
 		Graph<String> graph = new Graph<String>(a);
 		
-		System.out.println(graph.search("K", breitensuche));
+		System.out.println(graph.search("110", breitensuche));
 		System.out.println("Breitensuche: " + breitensuche.getPath());
 		
-		System.out.println(graph.search("K", tiefensuche));
+		System.out.println(graph.search("110", tiefensuche));
 		System.out.println("Tiefensuche: " + tiefensuche.getPath());
 	}
 }

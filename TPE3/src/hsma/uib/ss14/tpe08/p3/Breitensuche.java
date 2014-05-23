@@ -36,7 +36,7 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 				tempNode = q.remove();
 				for (Node<T> it : tempNode.getChildren()) {
 					if (ziel.equals(it.getValue())) {
-						gefunden.add(it); // muss weg!
+						gefunden.add(it); 
 					}
 					if (!this.pfad.contains(it)) {
 						q.add(it);

@@ -16,6 +16,6 @@ package hsma.uib.ss14.tpe08.p3;
 
 public class  NodeListImpl<T> extends ListImpl<Node<T>> implements NodeList<T> {
 
-	private static final long serialVersionUID = 9060376770788969273L;
+	private static final long serialVersionUID = 1L;
 
 }

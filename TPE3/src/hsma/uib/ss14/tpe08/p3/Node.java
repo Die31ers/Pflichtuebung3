@@ -16,8 +16,8 @@ package hsma.uib.ss14.tpe08.p3;
 public class Node<T> {
 
 	private String name;
-	private T value;
-	private NodeListImpl<T> children;
+	private T wert;
+	private NodeListImpl<T> kinderKnoten;
 
 	/**
 	 * Konstruktor fuer einen Knoten. In diesem wird sofort beim anlegen des
@@ -29,26 +29,26 @@ public class Node<T> {
 	 *            der Wert des Knotens
 	 */
 	public Node(String name, T value) {
-		this.children = new NodeListImpl<T>();
+		this.kinderKnoten = new NodeListImpl<T>();
 		this.name = name;
-		this.value = value;
+		this.wert = value;
 	}
 
 	/**
 	 * Fuegt ein Knoten/Kind zu der Liste des Knotens hinzu
 	 * 
-	 * @param child
+	 * @param kind
 	 *            das Kind das hinzugefuegt werden soll.
 	 */
-	public void addChild(Node<T> child) {
-		this.children.add(child);
+	public void addChild(Node<T> kind) {
+		this.kinderKnoten.add(kind);
 	}
 
 	/**
 	 * @return eine Liste aller Kinder des Knotens
 	 */
 	public NodeListImpl<T> getChildren() {
-		return this.children;
+		return this.kinderKnoten;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class Node<T> {
 	 * @return der Wert des Knotens
 	 */
 	public T getValue() {
-		return this.value;
+		return this.wert;
 	}
 
 	/**

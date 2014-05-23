@@ -1,6 +1,7 @@
 package hsma.uib.ss14.tpe08.p3;
 
 /**
+ * Die Klasse List.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum

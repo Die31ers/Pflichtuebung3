@@ -14,7 +14,7 @@ package hsma.uib.ss14.tpe08.p3;
 public class Tiefensuche<T> implements SearchStrategy<T> {
 
 	private NodeListImpl<T> pfad = new NodeListImpl<T>();
-	private NodeListImpl<T> gefunden; // anstelle von stack?
+	private NodeListImpl<T> gefunden; 
 
 	@Override
 	public NodeListImpl<T> search(Node<T> start, T ziel) {
@@ -36,7 +36,7 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 	}
 
 	/**
-	 * Hilfsklasse fuer die Tiefensuche. Ruft die eigentliche Rekursion der
+	 * Hilfsmethode fuer die Tiefensuche. Ruft die eigentliche Rekursion der
 	 * Tiefensuche auf.
 	 * 
 	 * @param node
