@@ -12,8 +12,7 @@ public class GraphSim {
 
 	public static <T> void main(String[] args) {
 		
-		Tiefensuche<String> tiefensuche = new Tiefensuche<String>();
-		Breitensuche<String> breitensuche = new Breitensuche<String>();
+
 		Node<String> a = new Node<String>("A", "A");
 		Node<String> b = new Node<String>("B", "B");
 		Node<String> c = new Node<String>("C", "C");
@@ -43,6 +42,8 @@ public class GraphSim {
 		h.addChild(b);
 
 		Graph<String> graph = new Graph<String>(a);
+		Tiefensuche<String> tiefensuche = new Tiefensuche<String>();
+		Breitensuche<String> breitensuche = new Breitensuche<String>();
 		
 		System.out.println(graph.search("110", breitensuche));
 		System.out.println("Breitensuche: " + breitensuche.getPath());

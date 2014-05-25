@@ -6,7 +6,8 @@ import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 import java.util.Queue;
 
 /**
- *  
+ * Klasse, welche eine Breitensuche über einen
+ * dynamischen Typ T implementiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -19,27 +20,32 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 
 	private NodeListImpl<T> pfad = new NodeListImpl<T>();
 
-	/**
-	 * 
-	 */
+    /**
+     * Implementierung der Breitensuche (Levelorder).
+     *
+     * @param start Startknoten des Graphen
+     * @param ziel Der gesuchte Wert
+     * @return Eine dynamische Liste der Vorkommen
+     */
 	@Override
 	public NodeListImpl<T> search(Node<T> start, T ziel) {
 		Node<T> tempNode;
 		Queue<Node<T>> q = new NodeListImpl<T>();
-		NodeListImpl<T> gefunden = new NodeListImpl<T>();
+		NodeListImpl<T> ergebnis = new NodeListImpl<T>();
 
 		this.pfad.clear();
 		this.pfad.add(start);
 
 		if (ziel.equals(start.getValue())) {
-			gefunden.add(start);
+			ergebnis.add(start);
 		} else {
 			q.add(start);
+			 //Solange noch Elemente in der Liste sind
 			while (!q.isEmpty()) {
-				tempNode = q.remove();
+				tempNode = q.poll();
 				for (Node<T> it : tempNode.getChildren()) {
 					if (ziel.equals(it.getValue())) {
-						gefunden.add(it); 
+						ergebnis.add(it); 
 					}
 					if (!this.pfad.contains(it)) {
 						q.add(it);
@@ -48,15 +54,14 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 				}
 			}
 		}
-		return gefunden;
+		return ergebnis;
 	}
 
 	/**
-	 * Implementierte Methode getPath.
+	 * Überschriebene Methode getPath.
 	 * 
 	 * @return liefert den zuvor gelaufenen Pfad zurueck.
 	 */
-
 	@Override
 	public NodeListImpl<T> getPath() {
 		return this.pfad;

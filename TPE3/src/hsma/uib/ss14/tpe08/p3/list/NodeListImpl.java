@@ -2,12 +2,9 @@ package hsma.uib.ss14.tpe08.p3.list;
 
 import hsma.uib.ss14.tpe08.p3.Node;
 
-
-
 /**
- * Klasse NodeListImpl welche eine erweiterung der Klasse ListImpl darstellt.
- * Dieser liste ist es nur erlaubt Node (Knoten) aufzunehmen. Im Vergleich dazu
- * darf die Klasse ListImpl alle Datentypen aufnehmen.
+ * Die Klasse, welche eine NodeList Implementierung zur Verfügung stellt.
+ * 
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -17,7 +14,7 @@ import hsma.uib.ss14.tpe08.p3.Node;
  *            Ein beliebiger Datentyp
  */
 
-public class  NodeListImpl<T> extends ListImpl<Node<T>> implements NodeList<T> {
+public class NodeListImpl<T> extends ListImpl<Node<T>> implements NodeList<T> {
 
 	private static final long serialVersionUID = 1L;
 

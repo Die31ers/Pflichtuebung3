@@ -3,9 +3,8 @@ package hsma.uib.ss14.tpe08.p3.suche;
 import hsma.uib.ss14.tpe08.p3.Node;
 import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 
-
 /**
- * 
+ * Klasse, welche eine Tiefensuche (PreOrder) implementiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -17,16 +16,23 @@ import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 public class Tiefensuche<T> implements SearchStrategy<T> {
 
 	private NodeListImpl<T> pfad = new NodeListImpl<T>();
-	private NodeListImpl<T> gefunden; 
-
+	private NodeListImpl<T> ergebnis;
+	
+    /**
+     * Implementierung der Tiefensuche (PreOrder).
+     *
+     * @param start Startknoten des Graphen
+     * @param ziel Der gesuchte Wert
+     * @return Eine dynamische Liste der Vorkommen
+     */
 	@Override
 	public NodeListImpl<T> search(Node<T> start, T ziel) {
-		this.gefunden = new NodeListImpl<T>();
+		this.ergebnis = new NodeListImpl<T>();
 		this.pfad.clear();
 
 		if (start.getValue().equals(ziel)) {
 			this.pfad.add(start);
-			gefunden.add(start);
+			ergebnis.add(start);
 		} else {
 			this.pfad.add(start);
 			for (Node<T> it : start.getChildren()) {
@@ -35,32 +41,34 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 				}
 			}
 		}
-		return gefunden;
+		return ergebnis;
 	}
 
 	/**
 	 * Hilfsmethode fuer die Tiefensuche. Ruft die eigentliche Rekursion der
 	 * Tiefensuche auf.
 	 * 
-	 * @param node
+	 * @param knoten
 	 *            der zu durchsuchende Knoten
-	 * @param search
+	 * @param ziel
 	 *            der gesuchte Knoten
 	 */
-	private void searchRek(Node<T> node, T search) {
-		this.pfad.add(node);
-		for (Node<T> it : node.getChildren()) {
-			if (it.getValue().equals(search)) {
-				this.gefunden.add(it);
+	private void searchRek(Node<T> knoten, T ziel) {
+		this.pfad.add(knoten);
+		for (Node<T> it : knoten.getChildren()) {
+			if (it.getValue().equals(ziel)) {
+				this.ergebnis.add(it);
 			}
 			if (!this.pfad.contains(it)) {
-				searchRek(it, search);
+				searchRek(it, ziel);
 			}
 		}
 	}
 
 	/**
-	 * @return liefert den Pfad der letzten Suche zurueck.
+	 * Überschriebene Methode getPath.
+	 * 
+	 * @return liefert den zuvor gelaufenen Pfad zurueck.
 	 */
 	@Override
 	public NodeListImpl<T> getPath() {

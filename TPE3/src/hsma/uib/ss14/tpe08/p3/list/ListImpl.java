@@ -3,7 +3,8 @@ package hsma.uib.ss14.tpe08.p3.list;
 import java.util.LinkedList;
 
 /**
- * Klasse ListImpl welche von der java internen Klasse LinkedList erbt.
+ * Klasse ListImpl, mit welcher wir eine Liste
+ * implementieren können und von der java internen Klasse LinkedList erbt.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum

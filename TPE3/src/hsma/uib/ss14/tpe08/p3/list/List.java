@@ -1,7 +1,7 @@
 package hsma.uib.ss14.tpe08.p3.list;
 
 /**
- * Die Klasse List.
+ * Einfache Datenstruktur zur Verwaltung einer Reihe von Elementen.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum

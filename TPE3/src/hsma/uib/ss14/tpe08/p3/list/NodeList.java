@@ -4,7 +4,7 @@ import hsma.uib.ss14.tpe08.p3.Node;
 
 
 /**
- * Die Schnittstelle NodeList, die die Klasse List erweitert.
+ * Die spezielle Schnittstelle NodeList, die die Schnittstelle List erweitert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum

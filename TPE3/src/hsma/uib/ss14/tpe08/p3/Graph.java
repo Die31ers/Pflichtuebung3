@@ -3,7 +3,6 @@ package hsma.uib.ss14.tpe08.p3;
 import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 import hsma.uib.ss14.tpe08.p3.suche.SearchStrategy;
 
-
 /**
  * 
  * Die Klasse eines Graphen. jeder Graph besteht aus einem
@@ -18,7 +17,10 @@ import hsma.uib.ss14.tpe08.p3.suche.SearchStrategy;
  *            ein beliebiger Datentyp
  */
 public class Graph<T> {
-
+	/**
+	 * Dynamischer Typ-Parameter, welcher den Startknoten des Graphen
+	 * implementiert.
+	 */
 	private Node<T> wurzelKnoten;
 
 	/**
@@ -32,18 +34,7 @@ public class Graph<T> {
 	}
 
 	/**
-	 * @param gesucht
-	 *            der Knoten der gesucht werden soll.
-	 * @param strategy
-	 *            die gewaehlte Suchstrategie
-	 * @return Eine Liste der uebereinstimmenden Knoten
-	 */
-	public NodeListImpl<T> search(T gesucht, SearchStrategy<T> strategy) {
-		return strategy.search(wurzelKnoten, gesucht);
-	}
-
-	/**
-	 * Kopiert alle Knoten des Graphen in eine neue Liste
+	 * Kopiert alle Knoten des Graphen in eine übergebene Liste
 	 * 
 	 * @param list
 	 *            Die Liste in welche die Knoten kopiert werden.
@@ -54,9 +45,8 @@ public class Graph<T> {
 	}
 
 	/**
-	 * Eigentliche Rekursive Methode. In dieser Methode wird nochmal mit der
-	 * Tiefensuche durch den Graphen gegangen um die einzelnen Knoten in einer
-	 * separaten Liste zu speichern.
+	 * Rekursive Methode, welche rekursiv den Grapheninhalt in eine Liste
+	 * generischen Typs(Eine Node generischen) Typs kopiert.
 	 * 
 	 * @param start
 	 *            Der Anfangspunkt
@@ -77,9 +67,16 @@ public class Graph<T> {
 	}
 
 	/**
-	 * @return liefert den Anfangsknoten
+	 * Methode, welche, mittels Funktionsübergabe (Callback) eine Klasse ruft.
+	 * 
+	 * @param gesucht
+	 *            der Knoten der gesucht werden soll.
+	 * @param strategy
+	 *            die gewaehlte Suchstrategie
+	 * @return Eine Liste der uebereinstimmenden Knoten
 	 */
-	public Node<T> getFirstNode() {
-		return this.wurzelKnoten;
+	public NodeListImpl<T> search(T gesucht, SearchStrategy<T> strategy) {
+		return strategy.search(wurzelKnoten, gesucht);
 	}
+
 }

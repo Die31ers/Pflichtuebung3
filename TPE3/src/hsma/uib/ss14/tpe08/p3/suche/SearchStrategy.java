@@ -3,10 +3,8 @@ package hsma.uib.ss14.tpe08.p3.suche;
 import hsma.uib.ss14.tpe08.p3.Node;
 import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 
-
 /**
- * Schnittstelle Search Strategy welche die zwei abstrakten Methoden search und
- * getPath fuer die Klassen Breitensuche und Tiefensuche bereitstellt.
+ * Interface um zu Suchen und den letzen Pfad der Suche zu implementieren.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -18,20 +16,22 @@ import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 public interface SearchStrategy<T> {
 
 	/**
-	 * Abstrakte Methode welche nach dem uebergebenen Knoten sucht.
+	 * Methode welche nach dem uebergebenen Wert sucht.
 	 * 
-	 * @param search
+	 * @param start
+	 *            Startknoten
+	 * 
+	 * @param ziel
 	 *            den zu suchenden Knoten
-	 * @param firstNode
-	 *            den Anfangsknoten
+	 * 
 	 * @return Eine Liste mit den gefundenen Knoten
 	 */
-	abstract NodeListImpl<T> search(Node<T> start, T ziel);
+	public NodeListImpl<T> search(Node<T> start, T ziel);
 
 	/**
-	 * Abstrakte methode welche den Pfad der letzten Suche zurueckgibt.
+	 * Methode, welche den Pfad der letzten Suche zurückgibt.
 	 * 
-	 * @return NodeListImpl<T> liefert den Pfad der letzen Suche zurueck
+	 * @return Liste der genommenen Knoten.
 	 */
-	abstract NodeListImpl<T> getPath();
+	public NodeListImpl<T> getPath();
 }
