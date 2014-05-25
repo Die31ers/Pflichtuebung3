@@ -14,7 +14,7 @@ import hsma.uib.ss14.tpe08.p3.Node;
  *            Ein beliebiger Datentyp
  */
 
-public class NodeListImpl<T> extends ListImpl<Node<T>> implements NodeList<T> {
+public class NodeListImpl<Node> extends ListImpl<Node> implements NodeList<Node> {
 
 	private static final long serialVersionUID = 1L;
 

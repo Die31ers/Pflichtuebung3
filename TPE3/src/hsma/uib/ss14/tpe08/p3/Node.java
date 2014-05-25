@@ -18,7 +18,7 @@ public class Node<T> {
 
 	private T wert;
 
-	private NodeListImpl<T> kinderKnoten;
+	private NodeListImpl<Node<T>> kinderKnoten;
 
 	/**
 	 * Konstruktor fuer einen Knoten.
@@ -29,7 +29,7 @@ public class Node<T> {
 	 *            der Wert des Knotens
 	 */
 	public Node(String name, T wert) {
-		this.kinderKnoten = new NodeListImpl<T>();
+		this.kinderKnoten = new NodeListImpl<Node<T>>();
 		this.name = name;
 		this.wert = wert;
 	}
@@ -67,7 +67,7 @@ public class Node<T> {
 	 * 
 	 * @return eine Liste aller Kinder des Knotens
 	 */
-	public NodeListImpl<T> getChildren() {
+	public NodeListImpl<Node<T>> getChildren() {
 		return this.kinderKnoten;
 	}
 

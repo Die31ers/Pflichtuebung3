@@ -1,5 +1,6 @@
 package hsma.uib.ss14.tpe08.p3.suche;
 
+import hsma.uib.ss14.tpe08.p3.suche.SearchHelper;
 import hsma.uib.ss14.tpe08.p3.Node;
 import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 
@@ -13,65 +14,45 @@ import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
  * @param <T>
  *            Ein beliebiger Datentyp
  */
-public class Tiefensuche<T> implements SearchStrategy<T> {
+public class Tiefensuche<T> extends SearchHelper<T> implements
+		SearchStrategy<T> {
 
-	private NodeListImpl<T> pfad = new NodeListImpl<T>();
-	private NodeListImpl<T> ergebnis;
-	
-    /**
-     * Implementierung der Tiefensuche (PreOrder).
+	  /**
+     * Methode, welche die Suche nach einen dynamischen
+     * Wert implementiert. Rekursiver Aufruf!
      *
-     * @param start Startknoten des Graphen
-     * @param ziel Der gesuchte Wert
-     * @return Eine dynamische Liste der Vorkommen
+     * @param root Startknoten des Graphen
+     * @param wert Wert, welcher gesucht werden soll
+     * @return Eine Liste der Ergegbnisse
      */
-	@Override
-	public NodeListImpl<T> search(Node<T> start, T ziel) {
-		this.ergebnis = new NodeListImpl<T>();
-		this.pfad.clear();
+    @Override
+    public NodeListImpl<Node<T>> search(Node<T> root, T wert) {
+        this.getPath().clear();
+        return preOrderRek(root, wert, new NodeListImpl<Node<T>>());
+    }
 
-		if (start.getValue().equals(ziel)) {
-			this.pfad.add(start);
-			ergebnis.add(start);
-		} else {
-			this.pfad.add(start);
-			for (Node<T> besuchterKnoten : start.getChildren()) {
-				if (!this.pfad.contains(besuchterKnoten)) {
-					searchRek(besuchterKnoten, ziel);
-				}
-			}
-		}
-		return ergebnis;
-	}
+    /**
+     * Methode, welche eine rekursive PreOrder
+     * Suche über eine dynamische Node implementiert.
+     *
+     * @param root    Startknoten des Graphen
+     * @param wert    Zu suchender Wert
+     * @param results Eine leere Liste für die Ergebnisse
+     * @return Eine Liste der gefundenen Ergebnisse
+     */
+    private NodeListImpl<Node<T>> preOrderRek(
+            Node<T> root, T wert, NodeListImpl<Node<T>> results) {
+        this.getPath().add(root);
+        if (root.getValue() == wert) {
+            results.add(root);
+        }
+        //Es werden alle Kinder des Knoten durchlaufen
+        for (Node<T> node : root.getChildren()) {
+            if (!this.getPath().contains(node)) {
+                preOrderRek(node, wert, results); //Rekursiver-Aufruf
+            }
+        }
+        return results;
+    }
 
-	/**
-	 * Hilfsmethode fuer die Tiefensuche. Ruft die eigentliche Rekursion der
-	 * Tiefensuche auf.
-	 * 
-	 * @param knoten
-	 *            der zu durchsuchende Knoten
-	 * @param ziel
-	 *            der gesuchte Knoten
-	 */
-	private void searchRek(Node<T> knoten, T ziel) {
-		this.pfad.add(knoten);
-		for (Node<T> besuchterKnoten : knoten.getChildren()) {
-			if (besuchterKnoten.getValue().equals(ziel)) {
-				this.ergebnis.add(besuchterKnoten);
-			}
-			if (!this.pfad.contains(besuchterKnoten)) {
-				searchRek(besuchterKnoten, ziel);
-			}
-		}
-	}
-
-	/**
-	 * Überschriebene Methode getPath.
-	 * 
-	 * @return liefert den zuvor gelaufenen Pfad zurueck.
-	 */
-	@Override
-	public NodeListImpl<T> getPath() {
-		return this.pfad;
-	}
 }

@@ -10,6 +10,6 @@ import hsma.uib.ss14.tpe08.p3.Node;
  * @author Joshua Barsoum
  * @author Hunar Mawlod
  */
-public interface NodeList<T> extends List<Node<T>>{
+public interface NodeList<Node> extends List<Node>{
 
 }

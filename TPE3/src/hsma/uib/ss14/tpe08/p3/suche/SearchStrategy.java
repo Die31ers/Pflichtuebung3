@@ -26,12 +26,12 @@ public interface SearchStrategy<T> {
 	 * 
 	 * @return Eine Liste mit den gefundenen Knoten
 	 */
-	public NodeListImpl<T> search(Node<T> start, T ziel);
+	public NodeListImpl<Node<T>> search(Node<T> start, T ziel);
 
 	/**
 	 * Methode, welche den Pfad der letzten Suche zurückgibt.
 	 * 
 	 * @return Liste der genommenen Knoten.
 	 */
-	public NodeListImpl<T> getPath();
+	public NodeListImpl<Node<T>> getPath();
 }

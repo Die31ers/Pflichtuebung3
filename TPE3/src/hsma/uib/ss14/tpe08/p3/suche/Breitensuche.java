@@ -2,6 +2,7 @@ package hsma.uib.ss14.tpe08.p3.suche;
 
 import hsma.uib.ss14.tpe08.p3.Node;
 import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
+import hsma.uib.ss14.tpe08.p3.suche.SearchHelper;
 
 import java.util.Queue;
 
@@ -16,9 +17,9 @@ import java.util.Queue;
  * @param <T>
  *            Ein beliebiger Datentyp
  */
-public class Breitensuche<T> implements SearchStrategy<T> {
+public class Breitensuche<T> extends SearchHelper<T>  implements SearchStrategy<T> {
 
-	private NodeListImpl<T> pfad = new NodeListImpl<T>();
+	//private NodeListImpl<T> pfad = new NodeListImpl<T>();
 
     /**
      * Implementierung der Breitensuche (Levelorder).
@@ -28,13 +29,13 @@ public class Breitensuche<T> implements SearchStrategy<T> {
      * @return Eine dynamische Liste der Vorkommen
      */
 	@Override
-	public NodeListImpl<T> search(Node<T> start, T ziel) {
+	public NodeListImpl<Node<T>> search(Node<T> start, T ziel) {
 		Node<T> tempNode;
-		Queue<Node<T>> q = new NodeListImpl<T>();
-		NodeListImpl<T> ergebnis = new NodeListImpl<T>();
+		Queue<Node<T>> q = new NodeListImpl<Node<T>>();
+		NodeListImpl<Node<T>> ergebnis = new NodeListImpl<Node<T>>();
 
-		this.pfad.clear();
-		this.pfad.add(start);
+		this.getPath().clear();
+		this.getPath().add(start);
 
 		if (ziel.equals(start.getValue())) {
 			ergebnis.add(start);
@@ -47,9 +48,9 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 					if (ziel.equals(besuchterKnoten.getValue())) {
 						ergebnis.add(besuchterKnoten); 
 					}
-					if (!this.pfad.contains(besuchterKnoten)) {
+					if (!this.getPath().contains(besuchterKnoten)) {
 						q.add(besuchterKnoten);
-						this.pfad.add(besuchterKnoten);
+						this.getPath().add(besuchterKnoten);
 					}
 				}
 			}
@@ -57,14 +58,5 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 		return ergebnis;
 	}
 
-	/**
-	 * Überschriebene Methode getPath.
-	 * 
-	 * @return liefert den zuvor gelaufenen Pfad zurueck.
-	 */
-	@Override
-	public NodeListImpl<T> getPath() {
-		return this.pfad;
 
-	}
 }

@@ -40,7 +40,7 @@ public class Graph<T> {
 	 *            Die Liste in welche die Knoten kopiert werden.
 	 * @return die neue gefuellte Liste
 	 */
-	public NodeListImpl<T> copyInto(NodeListImpl<T> liste) {
+	public NodeListImpl<Node<T>> copyInto(NodeListImpl<Node<T>> liste) {
 		return copyIntoRek(this.wurzelKnoten, liste);
 	}
 
@@ -54,7 +54,7 @@ public class Graph<T> {
 	 *            Die Liste in welche kopiert wird
 	 * @return eine neue Liste
 	 */
-	private NodeListImpl<T> copyIntoRek(Node<T> start, NodeListImpl<T> liste) {
+	private NodeListImpl<Node<T>> copyIntoRek(Node<T> start, NodeListImpl<Node<T>> liste) {
 		if (start != null) {
 			if (!liste.contains(start)) {
 				liste.add(start);
@@ -75,7 +75,7 @@ public class Graph<T> {
 	 *            die gewaehlte Suchstrategie
 	 * @return Eine Liste der uebereinstimmenden Knoten
 	 */
-	public NodeListImpl<T> search(T gesucht, SearchStrategy<T> strategy) {
+	public NodeListImpl<Node<T>> search(T gesucht, SearchStrategy<T> strategy) {
 		return strategy.search(wurzelKnoten, gesucht);
 	}
 
