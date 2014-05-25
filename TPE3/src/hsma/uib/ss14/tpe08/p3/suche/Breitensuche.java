@@ -7,8 +7,7 @@ import hsma.uib.ss14.tpe08.p3.suche.SearchHelper;
 import java.util.Queue;
 
 /**
- * Klasse, welche eine Breitensuche über einen
- * dynamischen Typ T implementiert.
+ * Klasse, welche eine Breitensuche über einen dynamischen Typ T implementiert.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -17,46 +16,39 @@ import java.util.Queue;
  * @param <T>
  *            Ein beliebiger Datentyp
  */
-public class Breitensuche<T> extends SearchHelper<T>  implements SearchStrategy<T> {
+public class Breitensuche<T> extends SearchHelper<T> implements
+		SearchStrategy<T> {
 
-	//private NodeListImpl<T> pfad = new NodeListImpl<T>();
-
-    /**
-     * Implementierung der Breitensuche (Levelorder).
-     *
-     * @param start Startknoten des Graphen
-     * @param ziel Der gesuchte Wert
-     * @return Eine dynamische Liste der Vorkommen
-     */
+	/**
+	 * Implementierung der Breitensuche (Levelorder).
+	 * 
+	 * @param start
+	 *            Startknoten des Graphen
+	 * @param ziel
+	 *            Der gesuchte Wert
+	 * @return Eine dynamische Liste der Vorkommen
+	 */
 	@Override
 	public NodeListImpl<Node<T>> search(Node<T> start, T ziel) {
-		Node<T> tempNode;
+		NodeListImpl<Node<T>> ergebnisse = new NodeListImpl<Node<T>>();
 		Queue<Node<T>> q = new NodeListImpl<Node<T>>();
-		NodeListImpl<Node<T>> ergebnis = new NodeListImpl<Node<T>>();
-
+		q.add(start);
+		Node<T> element;
 		this.getPath().clear();
-		this.getPath().add(start);
-
-		if (ziel.equals(start.getValue())) {
-			ergebnis.add(start);
-		} else {
-			q.add(start);
-			 //Solange noch Elemente in der Liste sind
-			while (!q.isEmpty()) {
-				tempNode = q.poll();
-				for (Node<T> besuchterKnoten : tempNode.getChildren()) {
-					if (ziel.equals(besuchterKnoten.getValue())) {
-						ergebnis.add(besuchterKnoten); 
-					}
-					if (!this.getPath().contains(besuchterKnoten)) {
-						q.add(besuchterKnoten);
-						this.getPath().add(besuchterKnoten);
-					}
+		// Solange noch Elemente in der Liste sind
+		while (!q.isEmpty()) {
+			element = q.poll();
+			if (element.getValue() == ziel) {
+				ergebnisse.add(element);
+			}
+			this.getPath().add(element);
+			for (Node<T> knoten : element.getChildren()) {
+				if (!this.getPath().contains(knoten)) {
+					q.add(knoten);
 				}
 			}
 		}
-		return ergebnis;
+		return ergebnisse;
 	}
-
 
 }
