@@ -36,12 +36,12 @@ public class Graph<T> {
 	/**
 	 * Kopiert alle Knoten des Graphen in eine übergebene Liste
 	 * 
-	 * @param list
+	 * @param liste
 	 *            Die Liste in welche die Knoten kopiert werden.
 	 * @return die neue gefuellte Liste
 	 */
-	public NodeListImpl<T> copyInto(NodeListImpl<T> list) {
-		return copyIntoRek(this.wurzelKnoten, list);
+	public NodeListImpl<T> copyInto(NodeListImpl<T> liste) {
+		return copyIntoRek(this.wurzelKnoten, liste);
 	}
 
 	/**
@@ -50,20 +50,20 @@ public class Graph<T> {
 	 * 
 	 * @param start
 	 *            Der Anfangspunkt
-	 * @param list
+	 * @param liste
 	 *            Die Liste in welche kopiert wird
 	 * @return eine neue Liste
 	 */
-	private NodeListImpl<T> copyIntoRek(Node<T> start, NodeListImpl<T> list) {
+	private NodeListImpl<T> copyIntoRek(Node<T> start, NodeListImpl<T> liste) {
 		if (start != null) {
-			if (!list.contains(start)) {
-				list.add(start);
-				for (Node<T> it : start.getChildren()) {
-					copyIntoRek(it, list);
+			if (!liste.contains(start)) {
+				liste.add(start);
+				for (Node<T> knoten : start.getChildren()) {
+					copyIntoRek(knoten, liste);
 				}
 			}
 		}
-		return list;
+		return liste;
 	}
 
 	/**

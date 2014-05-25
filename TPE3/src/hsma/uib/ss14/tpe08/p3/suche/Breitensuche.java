@@ -43,13 +43,13 @@ public class Breitensuche<T> implements SearchStrategy<T> {
 			 //Solange noch Elemente in der Liste sind
 			while (!q.isEmpty()) {
 				tempNode = q.poll();
-				for (Node<T> it : tempNode.getChildren()) {
-					if (ziel.equals(it.getValue())) {
-						ergebnis.add(it); 
+				for (Node<T> besuchterKnoten : tempNode.getChildren()) {
+					if (ziel.equals(besuchterKnoten.getValue())) {
+						ergebnis.add(besuchterKnoten); 
 					}
-					if (!this.pfad.contains(it)) {
-						q.add(it);
-						this.pfad.add(it);
+					if (!this.pfad.contains(besuchterKnoten)) {
+						q.add(besuchterKnoten);
+						this.pfad.add(besuchterKnoten);
 					}
 				}
 			}

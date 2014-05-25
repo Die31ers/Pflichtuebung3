@@ -35,9 +35,9 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 			ergebnis.add(start);
 		} else {
 			this.pfad.add(start);
-			for (Node<T> it : start.getChildren()) {
-				if (!this.pfad.contains(it)) {
-					searchRek(it, ziel);
+			for (Node<T> besuchterKnoten : start.getChildren()) {
+				if (!this.pfad.contains(besuchterKnoten)) {
+					searchRek(besuchterKnoten, ziel);
 				}
 			}
 		}
@@ -55,12 +55,12 @@ public class Tiefensuche<T> implements SearchStrategy<T> {
 	 */
 	private void searchRek(Node<T> knoten, T ziel) {
 		this.pfad.add(knoten);
-		for (Node<T> it : knoten.getChildren()) {
-			if (it.getValue().equals(ziel)) {
-				this.ergebnis.add(it);
+		for (Node<T> besuchterKnoten : knoten.getChildren()) {
+			if (besuchterKnoten.getValue().equals(ziel)) {
+				this.ergebnis.add(besuchterKnoten);
 			}
-			if (!this.pfad.contains(it)) {
-				searchRek(it, ziel);
+			if (!this.pfad.contains(besuchterKnoten)) {
+				searchRek(besuchterKnoten, ziel);
 			}
 		}
 	}

@@ -13,17 +13,11 @@ import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
  *            Ein beliebiger Datentyp
  */
 public class Node<T> {
-	/**
-	 * Membervariable Name des Knoten.
-	 */
+
 	private String name;
-	/**
-	 * Membervariable Wert(dynamisch) des Graphen.
-	 */
+
 	private T wert;
-	/**
-	 * Membervariable Liste von Kindern.
-	 */
+
 	private NodeListImpl<T> kinderKnoten;
 
 	/**
@@ -31,13 +25,13 @@ public class Node<T> {
 	 * 
 	 * @param name
 	 *            Der Name des Knotens
-	 * @param value
+	 * @param wert
 	 *            der Wert des Knotens
 	 */
-	public Node(String name, T value) {
+	public Node(String name, T wert) {
 		this.kinderKnoten = new NodeListImpl<T>();
 		this.name = name;
-		this.wert = value;
+		this.wert = wert;
 	}
 
 	/**
@@ -49,7 +43,7 @@ public class Node<T> {
 	public void addChild(Node<T> kind) {
 		this.kinderKnoten.add(kind);
 	}
-	
+
 	/**
 	 * Methode um den Namen des Knoten zu bekommen.
 	 * 
@@ -67,7 +61,7 @@ public class Node<T> {
 	public T getValue() {
 		return this.wert;
 	}
-	
+
 	/**
 	 * Methode, welche die Kinder eines Knoten zurückliefet.
 	 * 
@@ -76,8 +70,6 @@ public class Node<T> {
 	public NodeListImpl<T> getChildren() {
 		return this.kinderKnoten;
 	}
-
-
 
 	/**
 	 * Methode, um die Ausgabe eines Knoten deutlicher zu machen.
