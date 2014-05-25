@@ -1,4 +1,6 @@
-package hsma.uib.ss14.tpe08.p3;
+package hsma.uib.ss14.tpe08.p3.list;
+
+import hsma.uib.ss14.tpe08.p3.Node;
 
 
 /**

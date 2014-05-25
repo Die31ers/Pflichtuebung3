@@ -1,6 +1,9 @@
 package hsma.uib.ss14.tpe08.p3;
 
 import static org.junit.Assert.*;
+import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
+import hsma.uib.ss14.tpe08.p3.suche.Breitensuche;
+import hsma.uib.ss14.tpe08.p3.suche.Tiefensuche;
 
 import org.junit.Test;
 

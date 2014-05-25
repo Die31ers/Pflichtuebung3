@@ -1,4 +1,7 @@
-package hsma.uib.ss14.tpe08.p3;
+package hsma.uib.ss14.tpe08.p3.suche;
+
+import hsma.uib.ss14.tpe08.p3.Node;
+import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
 
 
 /**

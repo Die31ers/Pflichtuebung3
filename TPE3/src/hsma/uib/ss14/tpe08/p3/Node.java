@@ -1,5 +1,8 @@
 package hsma.uib.ss14.tpe08.p3;
 
+import hsma.uib.ss14.tpe08.p3.list.NodeListImpl;
+
+
 /**
  * Klasse Node welche ein Knoten im Graphen darstellen soll. Ein Knoten besteht
  * aus einem Namen und einem beliebigen datentyp. Des weiteren besitzt der

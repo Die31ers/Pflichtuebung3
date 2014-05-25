@@ -1,5 +1,8 @@
 package hsma.uib.ss14.tpe08.p3;
 
+import hsma.uib.ss14.tpe08.p3.suche.Breitensuche;
+import hsma.uib.ss14.tpe08.p3.suche.Tiefensuche;
+
 /**
  * @author Giang Pham
  * @author Joshua Barsoum
