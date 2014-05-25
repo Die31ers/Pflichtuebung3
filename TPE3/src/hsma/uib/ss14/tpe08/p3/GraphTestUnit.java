@@ -17,12 +17,12 @@ public class GraphTestUnit {
 	@Test
 	public void test() {
 
-		NodeListImpl<String> tiefen = new NodeListImpl<String>();
-		NodeListImpl<String> breiten = new NodeListImpl<String>();
-		NodeListImpl<String> notfound = new NodeListImpl<String>();
-		NodeListImpl<String> first = new NodeListImpl<String>();
-		NodeListImpl<String> found = new NodeListImpl<String>();
-		NodeListImpl<String> copy = new NodeListImpl<String>();
+		NodeListImpl<Node<String>> tiefen = new NodeListImpl<Node<String>>();
+		NodeListImpl<Node<String>> breiten = new NodeListImpl<Node<String>>();
+		NodeListImpl<Node<String>> notfound = new NodeListImpl<Node<String>>();
+		NodeListImpl<Node<String>> first = new NodeListImpl<Node<String>>();
+		NodeListImpl<Node<String>> found = new NodeListImpl<Node<String>>();
+		NodeListImpl<Node<String>> copy = new NodeListImpl<Node<String>>();
 		
 		Tiefensuche<String> tiefensuche = new Tiefensuche<String>();
 		Breitensuche<String> breitensuche = new Breitensuche<String>();
